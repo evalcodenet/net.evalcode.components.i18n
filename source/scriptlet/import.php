@@ -1,6 +1,9 @@
 <?php
 
 
+namespace Components;
+
+
   /**
    * I18n_Scriptlet_Import
    *
@@ -21,12 +24,12 @@
       $source=dirname(dirname(dirname(__DIR__)))."/resource/cldr/common/main/$locale.xml";
       $target=dirname(dirname(dirname(__DIR__)))."/resource/i18n/common/$locale.xml";
 
-      $document=new DOMDocument('1.0', 'utf-8');
+      $document=new \DOMDocument('1.0', 'utf-8');
       $document->standalone=true;
       $document->formatOutput=true;
       $document->preserveWhiteSpace=true;
 
-      $xml=new SimpleXMLElement(file_get_contents($source));
+      $xml=new \SimpleXMLElement(file_get_contents($source));
 
       $values=array();
       foreach($xml->localeDisplayNames->languages->language as $node)
@@ -130,7 +133,7 @@
     //-----
 
 
-    private function append(DOMDocument $document_, $path_, array $values_, array $map_=array())
+    private function append(\DOMDocument $document_, $path_, array $values_, array $map_=array())
     {
       $tags=explode('/', $path_);
 

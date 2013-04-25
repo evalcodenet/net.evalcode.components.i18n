@@ -1,6 +1,9 @@
 <?php
 
 
+namespace Components;
+
+
   /**
    * I18n_Locale
    *
@@ -45,7 +48,7 @@
     // STATIC ACCESSORS
     public static function __callStatic($name_, array $args_=array())
     {
-      if(null===constant("I18n_Locale::$name_"))
+      if(null===constant(get_called_class()."::$name_"))
         throw new Runtime_Exception('i18n/locale', sprintf('Unknown locale [name: %1$s].', $name_));
 
       return new static($name_);

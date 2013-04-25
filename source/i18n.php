@@ -1,6 +1,9 @@
 <?php
 
 
+namespace Components;
+
+
   /**
    * I18n
    *
@@ -84,14 +87,14 @@
       {
         self::$m_cache=array();
 
-        $directoryIterator=new RecursiveDirectoryIterator(
+        $directoryIterator=new \RecursiveDirectoryIterator(
           Environment::pathComponents(),
-          RecursiveDirectoryIterator::SKIP_DOTS|RecursiveDirectoryIterator::FOLLOW_SYMLINKS
+          \RecursiveDirectoryIterator::SKIP_DOTS|\RecursiveDirectoryIterator::FOLLOW_SYMLINKS
         );
 
-        $iterator=new RegexIterator(new RecursiveIteratorIterator($directoryIterator),
+        $iterator=new \RegexIterator(new \RecursiveIteratorIterator($directoryIterator),
           '/\/([a-zA-Z0-9]+)\/resource\/i18n\/((?>[a-zA-Z0-9\/]+\/)|(?R))*([_a-zA-Z]+)\.xml$/',
-          RegexIterator::GET_MATCH
+          \RegexIterator::GET_MATCH
         );
 
         foreach($iterator as $path=>$match)
@@ -110,7 +113,7 @@
       {
         self::$m_countries=array();
 
-        $xml=new SimpleXMLElement(@file_get_contents(dirname(__DIR__).'/resource/i18n/common/en.xml'));
+        $xml=new \SimpleXMLElement(@file_get_contents(dirname(__DIR__).'/resource/i18n/common/en.xml'));
 
         self::$m_countries=array();
         foreach($xml->xpath('//common/country/*') as $node)
@@ -131,7 +134,7 @@
       {
         self::$m_languages=array();
 
-        $xml=new SimpleXMLElement(@file_get_contents(dirname(__DIR__).'/resource/i18n/common/en.xml'));
+        $xml=new \SimpleXMLElement(@file_get_contents(dirname(__DIR__).'/resource/i18n/common/en.xml'));
 
         self::$m_languages=array();
         foreach($xml->xpath('//common/language/*') as $node)
@@ -223,11 +226,11 @@
 
     private static function loadFile($path_, $locale_)
     {
-      if($xml=new SimpleXMLElement(@file_get_contents($path_)))
+      if($xml=new \SimpleXMLElement(@file_get_contents($path_)))
         self::loadNamespace($xml, $locale_);
     }
 
-    private static function loadNamespace(SimpleXMLElement $node_, $locale_, $namespace_=null)
+    private static function loadNamespace(\SimpleXMLElement $node_, $locale_, $namespace_=null)
     {
       if(0<$node_->count())
       {
@@ -267,5 +270,4 @@
   {
     return I18n::current()->translatef(func_get_args());
   }
-  //----------------------------------------------------------------------------
 ?>
