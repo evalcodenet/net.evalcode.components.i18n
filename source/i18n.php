@@ -75,13 +75,13 @@ namespace Components;
 
     public static function clear()
     {
-      Runtime::cache()->clear(self::CACHE_KEY);
+      Cache::clear(self::CACHE_KEY);
     }
 
     public static function load()
     {
       if(null===self::$m_cache)
-        self::$m_cache=Runtime::cache()->get(self::CACHE_KEY);
+        self::$m_cache=Cache::get(self::CACHE_KEY);
 
       if(null===self::$m_cache)
       {
@@ -100,14 +100,14 @@ namespace Components;
         foreach($iterator as $path=>$match)
           self::loadFile($path, $match[3]);
 
-        Runtime::cache()->set(self::CACHE_KEY, self::$m_cache);
+        Cache::set(self::CACHE_KEY, self::$m_cache);
       }
     }
 
     public static function getCountries()
     {
       if(null===self::$m_countries)
-        self::$m_countries=Runtime::cache()->get(self::CACHE_KEY.'/country');
+        self::$m_countries=Cache::get(self::CACHE_KEY.'/country');
 
       if(null===self::$m_countries)
       {
@@ -119,7 +119,7 @@ namespace Components;
         foreach($xml->xpath('//common/country/*') as $node)
           self::$m_countries[$node->getName()]=$node->getName();
 
-        Runtime::cache()->set(self::CACHE_KEY.'/country', self::$m_countries);
+        Cache::set(self::CACHE_KEY.'/country', self::$m_countries);
       }
 
       return self::$m_countries;
@@ -128,7 +128,7 @@ namespace Components;
     public static function getLanguages()
     {
       if(null===self::$m_languages)
-        self::$m_languages=Runtime::cache()->get(self::CACHE_KEY.'/language');
+        self::$m_languages=Cache::get(self::CACHE_KEY.'/language');
 
       if(null===self::$m_languages)
       {
@@ -140,7 +140,7 @@ namespace Components;
         foreach($xml->xpath('//common/language/*') as $node)
           self::$m_languages[$node->getName()]=$node->getName();
 
-        Runtime::cache()->set(self::CACHE_KEY.'/language', self::$m_languages);
+        Cache::set(self::CACHE_KEY.'/language', self::$m_languages);
       }
 
       return self::$m_languages;
