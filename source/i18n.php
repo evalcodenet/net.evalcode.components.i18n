@@ -80,10 +80,10 @@ namespace Components;
 
     public static function load()
     {
-      if(null===self::$m_cache)
+      if(false===self::$m_cache)
         self::$m_cache=Cache::get(self::CACHE_KEY);
 
-      if(null===self::$m_cache)
+      if(false===self::$m_cache)
       {
         self::$m_cache=array();
 
@@ -106,10 +106,10 @@ namespace Components;
 
     public static function getCountries()
     {
-      if(null===self::$m_countries)
+      if(false===self::$m_countries)
         self::$m_countries=Cache::get(self::CACHE_KEY.'/country');
 
-      if(null===self::$m_countries)
+      if(false===self::$m_countries)
       {
         self::$m_countries=array();
 
@@ -127,10 +127,10 @@ namespace Components;
 
     public static function getLanguages()
     {
-      if(null===self::$m_languages)
+      if(false===self::$m_languages)
         self::$m_languages=Cache::get(self::CACHE_KEY.'/language');
 
-      if(null===self::$m_languages)
+      if(false===self::$m_languages)
       {
         self::$m_languages=array();
 
@@ -162,11 +162,11 @@ namespace Components;
      */
     public function translate($key_)
     {
-      if($value=@$this->m_translations[$key_])
-        return $value;
+      if(isset($this->m_translations[$key_]))
+        return $this->m_translations[$key_];
 
-      if($value=@$this->m_translationsFallback[$key_])
-        return $value;
+      if(isset($this->m_translationsFallback[$key_]))
+        return $this->m_translationsFallback[$key_];
 
       return $key_;
     }
@@ -177,11 +177,11 @@ namespace Components;
     public function translatef(array $args_)
     {
       $key=array_shift($args_);
-      if($value=@$this->m_translations[$key])
-        return call_user_func_array('sprintf', array_merge(array($value), $args_));
+      if(isset($this->m_translations[$key_]))
+        return call_user_func_array('sprintf', array_merge(array($this->m_translations[$key_]), $args_));
 
-      if($value=@$this->m_translationsFallback[$key])
-        return call_user_func_array('sprintf', array_merge(array($value), $args_));
+      if(isset($this->m_translationsFallback[$key_]))
+        return call_user_func_array('sprintf', array_merge(array($this->m_translationsFallback[$key_]), $args_));
 
       return $key;
     }
@@ -194,21 +194,21 @@ namespace Components;
      */
     private static $m_instances=array();
     /**
+     * @var null|array|string
+     */
+    private static $m_cache=false;
+    /**
+     * @var null|array|string
+     */
+    private static $m_countries=false;
+    /**
+     * @var null|array|string
+     */
+    private static $m_languages=false;
+    /**
      * @var I18n
      */
     private static $m_current;
-    /**
-     * @var null|array|string
-     */
-    private static $m_cache;
-    /**
-     * @var null|array|string
-     */
-    private static $m_countries;
-    /**
-     * @var null|array|string
-     */
-    private static $m_languages;
 
     /**
      * @var I18n_Locale
@@ -216,6 +216,8 @@ namespace Components;
     private $m_locale;
 
     /**
+     * @var array|string
+     */
     private $m_translations=array();
     /**
      * @var array|string
