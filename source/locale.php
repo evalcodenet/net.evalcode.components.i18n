@@ -8,20 +8,20 @@ namespace Components;
    * I18n_Locale
    *
    * @package net.evalcode.components
-   * @subpackage runtime.i18n
+   * @subpackage i18n
    *
    * @author evalcode.net
    *
-   * @method I18n_Locale en
-   * @method I18n_Locale en_US
-   * @method I18n_Locale de
-   * @method I18n_Locale de_DE
-   * @method I18n_Locale zh
-   * @method I18n_Locale zh_CN
-   * @method I18n_Locale zh_Hans_CN
-   * @method I18n_Locale zh_Hant_CN
+   * @method \Components\I18n_Locale en
+   * @method \Components\I18n_Locale en_US
+   * @method \Components\I18n_Locale de
+   * @method \Components\I18n_Locale de_DE
+   * @method \Components\I18n_Locale zh
+   * @method \Components\I18n_Locale zh_CN
+   * @method \Components\I18n_Locale zh_Hans_CN
+   * @method \Components\I18n_Locale zh_Hant_CN
    */
-  class I18n_Locale
+  class I18n_Locale extends Enumeration
   {
     // PREDEFINED PROPERTIES
     const en='en';
@@ -37,31 +37,30 @@ namespace Components;
     //--------------------------------------------------------------------------
 
 
-    // CONSTRUCTION
-    public function __construct($name_)
-    {
-      $this->m_name=$name_;
-    }
-    //--------------------------------------------------------------------------
-
-
     // STATIC ACCESSORS
-    public static function __callStatic($name_, array $args_=array())
-    {
-      if(null===constant(get_called_class()."::$name_"))
-        throw new Runtime_Exception('i18n/locale', sprintf('Unknown locale [name: %1$s].', $name_));
-
-      return new static($name_);
-    }
-
     /**
      * @param string $name_
      *
-     * @return I18n_Locale
+     * @return \Components\I18n_Locale
      */
     public static function forName($name_)
     {
-      return static::$name_();
+      if(isset(self::$m_locales[$name_]))
+      {
+        $locale=self::$m_locales[$name_];
+
+        return self::$locale();
+      }
+
+      return null;
+    }
+
+    /**
+     * @see Components.Enumeration::values()
+     */
+    public static function values()
+    {
+      return array_values(self::$m_locales);
     }
     //--------------------------------------------------------------------------
 
@@ -126,35 +125,21 @@ namespace Components;
     //--------------------------------------------------------------------------
 
 
-    // OVERRIDES/IMPLEMENTS
-    public function equals($object_)
-    {
-      if($object_ instanceof self)
-        return $this->m_name===$object_->m_name;
-
-      return false;
-    }
-
-    public function hashCode()
-    {
-      $hash=0;
-
-      $len=strlen($this->m_name);
-      for($i=0; $i<$len; $i++)
-        $hash=31*$hash+ord($this->m_name[$i]);
-
-      return $hash;
-    }
-
-    public function __toString()
-    {
-      return $this->m_name;
-    }
-    //--------------------------------------------------------------------------
-
-
     // IMPLEMENTATION
-    private $m_name;
+    /**
+     * @var array|string
+     */
+    private static $m_locales=array(
+      self::en=>self::en,
+      self::en_US=>self::en_US,
+      self::de=>self::de,
+      self::de_DE=>self::de_DE,
+      self::zh=>self::zh,
+      self::zh_CN=>self::zh_CN,
+      self::zh_Hans_CN=>self::zh_Hans_CN,
+      self::zh_Hant_CN=>self::zh_Hant_CN
+    );
+
     private $m_language;
     private $m_country;
     private $m_script;

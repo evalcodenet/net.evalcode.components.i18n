@@ -8,7 +8,7 @@ namespace Components;
    * I18n
    *
    * @package net.evalcode.components
-   * @subpackage runtime
+   * @subpackage i18n
    *
    * @author evalcode.net
    */
@@ -228,7 +228,7 @@ namespace Components;
 
     private static function loadFile($path_, $locale_)
     {
-      if($xml=new \SimpleXMLElement(@file_get_contents($path_)))
+      if($xml=new \SimpleXMLElement(file_get_contents($path_)))
         self::loadNamespace($xml, $locale_);
     }
 
