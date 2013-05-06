@@ -16,7 +16,7 @@ namespace Components;
    */
   class I18n_Scriptlet_Import extends Http_Scriptlet
   {
-    // OVERRIDES/IMPLEMENTS
+    // OVERRIDES
     public function post()
     {
       $locale=$_REQUEST['locale'];

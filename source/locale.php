@@ -65,7 +65,7 @@ namespace Components;
     //--------------------------------------------------------------------------
 
 
-    // ACCESSORS/MUTATORS
+    // ACCESSORS
     public function getName()
     {
       return $this->m_name;
