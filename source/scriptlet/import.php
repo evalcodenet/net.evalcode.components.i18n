@@ -17,7 +17,7 @@ namespace Components;
   class I18n_Scriptlet_Import extends Http_Scriptlet
   {
     // OVERRIDES
-    public function post()
+    public function get()
     {
       $locale=$_REQUEST['locale'];
 
@@ -96,12 +96,12 @@ namespace Components;
         $values[(string)$node['type']]=str_replace(array('HH', 'mm', 'ss', 'zzzz', 'z'), array('H', 'i', 's', 'O', 'T'), (string)$node->timeFormat->pattern);
       $this->append($document, 'common/time/pattern', $values);
 
-      @file_put_contents($target, $document->saveXML());
+      file_put_contents($target, $document->saveXML());
     }
 
-    public function get()
+    public function post()
     {
-      return $this->post();
+      return $this->get();
     }
     //--------------------------------------------------------------------------
 

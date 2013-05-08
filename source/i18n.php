@@ -22,6 +22,9 @@ namespace Components;
     // CONSTRUCTION
     public function __construct(I18n_Locale $locale_)
     {
+      if(false===self::$m_cache)
+        static::load();
+
       $this->m_locale=$locale_;
 
       $locale=$locale_->getName();
@@ -177,11 +180,11 @@ namespace Components;
     public function translatef(array $args_)
     {
       $key=array_shift($args_);
-      if(isset($this->m_translations[$key_]))
-        return call_user_func_array('sprintf', array_merge(array($this->m_translations[$key_]), $args_));
+      if(isset($this->m_translations[$key]))
+        return call_user_func_array('sprintf', array_merge(array($this->m_translations[$key]), $args_));
 
-      if(isset($this->m_translationsFallback[$key_]))
-        return call_user_func_array('sprintf', array_merge(array($this->m_translationsFallback[$key_]), $args_));
+      if(isset($this->m_translationsFallback[$key]))
+        return call_user_func_array('sprintf', array_merge(array($this->m_translationsFallback[$key]), $args_));
 
       return $key;
     }
