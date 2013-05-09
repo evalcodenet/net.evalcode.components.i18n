@@ -12,14 +12,14 @@ namespace Components;
    *
    * @author evalcode.net
    *
-   * @method \Components\I18n_Locale en
-   * @method \Components\I18n_Locale en_US
-   * @method \Components\I18n_Locale de
-   * @method \Components\I18n_Locale de_DE
-   * @method \Components\I18n_Locale zh
-   * @method \Components\I18n_Locale zh_CN
-   * @method \Components\I18n_Locale zh_Hans_CN
-   * @method \Components\I18n_Locale zh_Hant_CN
+   * @method Components\I18n_Locale en
+   * @method Components\I18n_Locale en_US
+   * @method Components\I18n_Locale de
+   * @method Components\I18n_Locale de_DE
+   * @method Components\I18n_Locale zh
+   * @method Components\I18n_Locale zh_CN
+   * @method Components\I18n_Locale zh_Hans_CN
+   * @method Components\I18n_Locale zh_Hant_CN
    */
   class I18n_Locale extends Enumeration
   {
@@ -41,7 +41,7 @@ namespace Components;
     /**
      * @param string $name_
      *
-     * @return \Components\I18n_Locale
+     * @return Components\I18n_Locale
      */
     public static function forName($name_)
     {
