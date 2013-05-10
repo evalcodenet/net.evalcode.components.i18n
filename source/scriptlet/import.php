@@ -19,7 +19,7 @@ namespace Components;
     // OVERRIDES
     public function get()
     {
-      $locale=$_REQUEST['locale'];
+      $locale=$this->request->getParams()->get('locale');
 
       $source=dirname(dirname(dirname(__DIR__)))."/resource/cldr/common/main/$locale.xml";
       $target=dirname(dirname(dirname(__DIR__)))."/resource/i18n/common/$locale.xml";

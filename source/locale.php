@@ -34,6 +34,8 @@ namespace Components;
     const zh_Hant_CN='zh_Hant_CN';
 
     const SCRIPT_DEFAULT='latn';
+
+    const LOCALE_DEFAULT=self::en_US;
     //--------------------------------------------------------------------------
 
 
@@ -56,6 +58,16 @@ namespace Components;
     }
 
     /**
+     * @return Components\I18n_Locale
+     */
+    public static function defaultLocale()
+    {
+      $locale=self::LOCALE_DEFAULT;
+
+      return self::$locale();
+    }
+
+    /**
      * @see Components.Enumeration::values()
      */
     public static function values()
@@ -66,12 +78,12 @@ namespace Components;
 
 
     // ACCESSORS
-    public function getName()
+    public function title()
     {
-      return $this->m_name;
+      return $this->language().', '.$this->country();
     }
 
-    public function getCountry()
+    public function country()
     {
       if(null===$this->m_country)
       {
@@ -82,12 +94,12 @@ namespace Components;
       return $this->m_country;
     }
 
-    public function getCountryTitle()
+    public function countryTitle()
     {
-      return translate('common/country/'.$this->getCountry());
+      return I18n::translate('common/country/'.$this->country());
     }
 
-    public function getLanguage()
+    public function language()
     {
       if(null===$this->m_language)
       {
@@ -98,12 +110,12 @@ namespace Components;
       return $this->m_language;
     }
 
-    public function getLanguageTitle()
+    public function languageTitle()
     {
-      return translate('common/language/'.$this->getLanguage());
+      return I18n::translate('common/language/'.$this->language());
     }
 
-    public function getScript()
+    public function script()
     {
       if(null===$this->m_script)
       {
@@ -118,9 +130,9 @@ namespace Components;
       return $this->m_script;
     }
 
-    public function getScriptTitle()
+    public function scriptTitle()
     {
-      return translate('common/script/'.$this->getScript());
+      return I18n::translate('common/script/'.$this->script());
     }
     //--------------------------------------------------------------------------
 
