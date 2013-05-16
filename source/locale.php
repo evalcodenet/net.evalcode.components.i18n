@@ -43,7 +43,7 @@ namespace Components;
     /**
      * @param string $name_
      *
-     * @return Components\I18n_Locale
+     * @return \Components\I18n_Locale
      */
     public static function forName($name_)
     {
@@ -58,7 +58,7 @@ namespace Components;
     }
 
     /**
-     * @return Components\I18n_Locale
+     * @return \Components\I18n_Locale
      */
     public static function defaultLocale()
     {
@@ -68,7 +68,7 @@ namespace Components;
     }
 
     /**
-     * @see Components.Enumeration::values()
+     * @see Components\Enumeration::values()
      */
     public static function values()
     {

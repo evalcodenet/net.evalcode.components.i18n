@@ -50,7 +50,7 @@ namespace Components;
 
     // STATIC ACCESSORS
     /**
-     * @return Components\I18n_Locale
+     * @return \Components\I18n_Locale
      */
     public static function locale()
     {
@@ -58,9 +58,9 @@ namespace Components;
     }
 
     /**
-     * @param Components\I18n_Locale $context_
+     * @param \Components\I18n_Locale $context_
      *
-     * @return Components\I18n_Locale
+     * @return \Components\I18n_Locale
      */
     public static function push(I18n_Locale $locale_)
     {
@@ -75,7 +75,7 @@ namespace Components;
     }
 
     /**
-     * @return Components\I18n_Locale
+     * @return \Components\I18n_Locale
      */
     public static function pop()
     {
