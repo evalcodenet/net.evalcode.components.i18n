@@ -71,6 +71,8 @@ namespace Components;
 
       self::$m_translations=&self::$m_cache[$locale_->name()];
 
+      setlocale(LC_ALL, $locale_->systemLocale());
+
       return self::$m_locale=end(self::$m_locales);
     }
 
@@ -92,6 +94,8 @@ namespace Components;
       {
         self::$m_locale=null;
       }
+
+      setlocale(LC_ALL, $locale->systemLocale());
 
       return $locale;
     }
