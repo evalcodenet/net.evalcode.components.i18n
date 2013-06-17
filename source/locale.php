@@ -34,9 +34,12 @@ namespace Components;
     const zh_Hans_CN='zh_Hans_CN';
     const zh_Hant_CN='zh_Hant_CN';
 
-    const SCRIPT_DEFAULT='latn';
+    // TODO (CSH) Enumeration I18n_Script (integrate transformation utilities, e.g. I18n_Script_Han)
+    const SCRIPT_HAN='han';
+    const SCRIPT_LATIN='latn';
 
     const LOCALE_DEFAULT=self::en_US;
+    const SCRIPT_DEFAULT=self::SCRIPT_LATIN;
     //--------------------------------------------------------------------------
 
 
@@ -124,6 +127,8 @@ namespace Components;
 
         if(3===count($chunks))
           $this->m_script=strtolower($chunks[1]);
+        else if(isset(self::$m_scripts[$this->language()]))
+          $this->m_script=self::$m_scripts[$this->m_language];
         else
           $this->m_script=self::SCRIPT_DEFAULT;
       }
@@ -201,6 +206,10 @@ namespace Components;
       self::zh_CN=>self::zh_CN,
       self::zh_Hans_CN=>self::zh_Hans_CN,
       self::zh_Hant_CN=>self::zh_Hant_CN
+    );
+    // TODO Generalize ...
+    private static $m_scripts=array(
+      self::zh=>'han'
     );
 
     private $m_language;
