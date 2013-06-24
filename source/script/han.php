@@ -30,8 +30,8 @@ namespace Components;
      */
     public static function toLatin($string_)
     {
-      if(null===self::$m_index)
-        static::load();
+      if(false===static::contains($string_))
+        return $string_;
 
       $transformed=array();
       foreach(String::split($string_) as $char)
@@ -42,6 +42,27 @@ namespace Components;
       }
 
       return implode(' ', $transformed);
+    }
+
+    public static function contains($string_)
+    {
+      if(null===self::$m_index)
+        static::load();
+
+      $length=mb_strlen($string_);
+
+      // Can't be chinese (multi-byte) if strlen delivers correct/same result as mb_strlen.
+      if($length===strlen($string_))
+        return false;
+
+      for($i=0; $i<$length; $i++)
+      {
+        if(false!==mb_strpos(self::$m_index, mb_substr($string_, $i, 1)))
+          return true;
+      }
+
+      // TODO Optimize (at least the negative case) ..
+      return false;
     }
     //--------------------------------------------------------------------------
 
