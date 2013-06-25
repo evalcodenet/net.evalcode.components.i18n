@@ -5,24 +5,25 @@ namespace Components;
 
 
   /**
-   * I18n_Scriptlet_Import
+   * I18n_Scriptlet_Import_Cldr_Common
    *
    * @package net.evalcode.components
-   * @subpackage i18n.scriptlet
+   * @subpackage i18n.scriptlet.import.cldr
    *
    * @author evalcode.net
    *
-   * @todo Replace by CLI script ..
+   * @todo Replace by service & CLI script / REST resource..
    */
-  class I18n_Scriptlet_Import extends Http_Scriptlet
+  class I18n_Scriptlet_Import_Cldr_Common extends Http_Scriptlet
   {
     // OVERRIDES
     public function get()
     {
       $locale=$this->request->getParams()->get('locale');
 
-      $source=dirname(dirname(dirname(__DIR__)))."/resource/cldr/common/main/$locale.xml";
-      $target=dirname(dirname(dirname(__DIR__)))."/resource/i18n/common/$locale.xml";
+      $source=Environment::pathComponentResource('i18n', 'resource', 'cldr', 'common', 'main', "$locale.xml");
+      // FIXME "Upgrade" to JSON.
+      $target=Environment::pathComponentResource('i18n', 'resource', 'i18n', 'common', "$locale.xml");
 
       $document=new \DOMDocument('1.0', 'utf-8');
       $document->standalone=true;

@@ -252,6 +252,7 @@ namespace Components;
     //------
 
 
+    // FIXME "Upgrade" to JSON.
     private static function load()
     {
       $locale=self::$m_locale->name();

@@ -19,6 +19,20 @@ namespace Components;
     //--------------------------------------------------------------------------
 
 
+    // PROPERTIES
+    public static $unicodeRange=array(
+      0x4e00, 0x9fff
+      // XXX Evaluate if following are required when actual issues come up.
+      // 0x3400, 0x4dbf,
+      // 0x20000, 0x2a6df,
+      // 0x2a700, 0x2b73f,
+      // 0x2b740, 0x2b81f,
+      // 0x9f00, 0xfaff,
+      // 0x2f800, 0x2fa1f
+    );
+    //--------------------------------------------------------------------------
+
+
     // STATIC ACCESSORS
     /**
      * Translates given string of simplified chinese characters
@@ -30,90 +44,75 @@ namespace Components;
      */
     public static function toLatin($string_)
     {
-      if(false===static::contains($string_))
-        return $string_;
+      if(null===self::$m_unicode)
+        static::load();
 
-      $transformed=array();
-      foreach(String::split($string_) as $char)
+      $transformed='';
+      $length=mb_strlen($string_);
+
+      for($i=0; $i<$length; $i++)
       {
-        $idx=mb_strpos(self::$m_index, $char);
-        if(isset(self::$m_map[$idx]))
-          $transformed[]=self::$m_map[$idx];
+        $char=mb_substr($string_, $i, 1);
+        $dec=Character::unicodeDecimal($char);
+
+        if(isset(self::$m_transformLatin[$dec]))
+          $transformed.=self::$m_transformLatin[$dec].' ';
+        else
+          $transformed.=$char;
       }
 
-      return implode(' ', $transformed);
+      return rtrim($transformed, ' ');
     }
 
     public static function contains($string_)
     {
-      if(null===self::$m_index)
+      if(null===self::$m_unicode)
         static::load();
 
       $length=mb_strlen($string_);
+      $ranges=array_chunk(static::$unicodeRange, 2);
 
-      // Can't be chinese (multi-byte) if strlen delivers correct/same result as mb_strlen.
-      if($length===strlen($string_))
-        return false;
-
-      for($i=0; $i<$length; $i++)
+      foreach($ranges as $range)
       {
-        if(false!==mb_strpos(self::$m_index, mb_substr($string_, $i, 1)))
-          return true;
+        $low=reset($range);
+        $high=end($range);
+
+        for($i=0; $i<$length; $i++)
+        {
+          $dec=Character::unicodeDecimal(mb_substr($string_, $i, 1));
+
+          if($low<=$dec && $high>=$dec)
+            return true;
+        }
       }
 
-      // TODO Optimize (at least the negative case) ..
       return false;
     }
     //--------------------------------------------------------------------------
 
 
     // IMPLEMENTATION
-    private static $m_map=array();
-    private static $m_index;
+    private static $m_unicode;
+    private static $m_transformLatin;
     //-----
 
 
+    // Terribly slow ... split map into chunks and load ranges on demand or generate php source to include here ..
     private static function load()
     {
-      if(false===(self::$m_index=Cache::get(self::CACHE_KEY.'/index'))
-        || false===(self::$m_map=Cache::get(self::CACHE_KEY.'/map')))
+      if($map=Cache::get(self::CACHE_KEY.'/map'))
       {
-        $pathXml=Environment::pathComponentResource(
-          'i18n', 'resource', 'cldr', 'common', 'transforms', 'Han-Latin.xml'
+        $path=Environment::pathComponentResource(
+          'i18n', 'resource', 'i18n', 'script', 'han.json'
         );
 
-        $xml=new \SimpleXMLElement(Io_File::valueOf($pathXml)->getContent());
+        $map=json_decode(Io_File::valueOf($path)->getContent(), true);
 
-        self::$m_map=array();
-        self::$m_index='';
-
-        /* @var $node \SimpleXMLElement */
-        foreach($xml->xpath('//supplementalData/transforms/transform/tRule') as $node)
-        {
-          $value=(string)$node;
-
-          $index='';
-          $pinyin='';
-
-          if(91===ord($value[0]))
-          {
-            $index=mb_substr($value, 1, mb_strpos($value, chr(93))-1);
-
-            $ldim=mb_strrpos($value, chr(226));
-            $pinyin=mb_substr($value, $ldim+1, mb_strrpos($value, chr(59))-$ldim-1);
-          }
-
-          $start=mb_strlen(self::$m_index);
-          $end=$start+mb_strlen($index);
-
-          self::$m_index.=$index;
-          for($i=$start; $i<$end; $i++)
-            self::$m_map[$i]=$pinyin;
-        }
-
-        Cache::set(self::CACHE_KEY.'/index', self::$m_index);
-        Cache::set(self::CACHE_KEY.'/map', self::$m_map);
+        Cache::set(self::CACHE_KEY.'/map', $map);
       }
+
+      self::$m_unicode=&$map['unicode'];
+      self::$m_transformLatin=&$map['transform']['latin'];
     }
     //--------------------------------------------------------------------------
   }
