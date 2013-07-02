@@ -100,7 +100,7 @@ namespace Components;
     // Terribly slow ... split map into chunks and load ranges on demand or generate php source to include here ..
     private static function load()
     {
-      if($map=Cache::get(self::CACHE_KEY.'/map'))
+      if(!$map=Cache::get(self::CACHE_KEY.'/map'))
       {
         $path=Environment::pathComponentResource(
           'i18n', 'resource', 'i18n', 'script', 'han.json'
