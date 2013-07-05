@@ -5,17 +5,17 @@ namespace Components;
 
 
   /**
-   * I18n_Script_Han
+   * I18n_Script_Hans
    *
    * @package net.evalcode.components
    * @subpackage i18n.script
    *
    * @author evalcode.net
    */
-  class I18n_Script_Han
+  class I18n_Script_Hans extends I18n_Script
   {
     // PREDEFINED PROPERTIES
-    const CACHE_KEY='i18n/script/han';
+    const CACHE_KEY='i18n/script/hans';
     //--------------------------------------------------------------------------
 
 
@@ -33,16 +33,12 @@ namespace Components;
     //--------------------------------------------------------------------------
 
 
-    // STATIC ACCESSORS
+    // OVERRIDES/IMPLEMENTS
     /**
-     * Translates given string of simplified chinese characters
-     * into latin ie. pinyin.
-     *
-     * @param string $string_
-     *
-     * @return string
+     * (non-PHPdoc)
+     * @see \Components\I18n_Script::transformToLatn()
      */
-    public static function toLatin($string_)
+    public function transformToLatn($string_)
     {
       if(null===self::$m_unicode)
         static::load();
@@ -55,8 +51,8 @@ namespace Components;
         $char=mb_substr($string_, $i, 1);
         $dec=Character::unicodeDecimal($char);
 
-        if(isset(self::$m_transformLatin[$dec]))
-          $transformed.=self::$m_transformLatin[$dec].' ';
+        if(isset(self::$m_transformLatn[$dec]))
+          $transformed.=self::$m_transformLatn[$dec].' ';
         else
           $transformed.=$char;
       }
@@ -64,7 +60,11 @@ namespace Components;
       return rtrim($transformed, ' ');
     }
 
-    public static function contains($string_)
+    /**
+     * (non-PHPdoc)
+     * @see \Components\I18n_Script::detect()
+     */
+    public function detect($string_)
     {
       if(null===self::$m_unicode)
         static::load();
@@ -79,10 +79,10 @@ namespace Components;
 
         for($i=0; $i<$length; $i++)
         {
-          $dec=Character::unicodeDecimal(mb_substr($string_, $i, 1));
+        $dec=Character::unicodeDecimal(mb_substr($string_, $i, 1));
 
-          if($low<=$dec && $high>=$dec)
-            return true;
+        if($low<=$dec && $high>=$dec)
+          return true;
         }
       }
 
@@ -93,17 +93,17 @@ namespace Components;
 
     // IMPLEMENTATION
     private static $m_unicode;
-    private static $m_transformLatin;
+    private static $m_transformLatn;
     //-----
 
 
-    // Terribly slow ... split map into chunks and load ranges on demand or generate php source to include here ..
+    // TODO Too slow. Split map into chunks and load ranges on demand or generate php source to include here ..
     private static function load()
     {
       if(!$map=Cache::get(self::CACHE_KEY.'/map'))
       {
         $path=Environment::pathComponentResource(
-          'i18n', 'resource', 'i18n', 'script', 'han.json'
+          'i18n', 'resource', 'i18n', 'script', 'hans.json'
         );
 
         $map=json_decode(Io_File::valueOf($path)->getContent(), true);
@@ -112,7 +112,7 @@ namespace Components;
       }
 
       self::$m_unicode=&$map['unicode'];
-      self::$m_transformLatin=&$map['transform']['latin'];
+      self::$m_transformLatn=&$map['transform']['latin'];
     }
     //--------------------------------------------------------------------------
   }

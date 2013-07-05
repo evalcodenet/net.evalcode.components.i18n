@@ -28,7 +28,7 @@ namespace Components;
    * At the same time the class is supposed to do nothing at all as long
    * as I18n::translate has not been invoked. This lazy behavior is for the
    * sake of performance of e.g. REST services and or scriptlets that may
-   * not require any internationalization. Yet they are able to utilize it
+   * not require any internationalisation. Yet they are able to utilize it
    * on demand.
    *
    * There is also a fallback mechanism that delivers a translation of
@@ -54,6 +54,9 @@ namespace Components;
      */
     public static function locale()
     {
+      if(null===self::$m_locale)
+        static::push(I18n_Locale::defaultLocale());
+
       return self::$m_locale;
     }
 
@@ -100,7 +103,7 @@ namespace Components;
       return $locale;
     }
 
-    public static function getCountries()
+    public static function countries()
     {
       if(null===self::$m_countries)
         self::$m_countries=Cache::get(self::CACHE_KEY.'/country');
@@ -121,7 +124,7 @@ namespace Components;
       return self::$m_countries;
     }
 
-    public static function getLanguages()
+    public static function languages()
     {
       if(null===self::$m_languages)
         self::$m_languages=Cache::get(self::CACHE_KEY.'/language');
@@ -142,7 +145,7 @@ namespace Components;
       return self::$m_languages;
     }
 
-    public static function clear()
+    public static function clearCache()
     {
       Cache::clear(self::CACHE_KEY);
     }
@@ -252,11 +255,10 @@ namespace Components;
     //------
 
 
-    // FIXME "Upgrade" to JSON.
     private static function load()
     {
       $locale=self::$m_locale->name();
-      $language=self::$m_locale->language();
+      $language=self::$m_locale->languageName();
 
       if(false===isset(self::$m_loaded[$locale]))
       {
@@ -277,8 +279,8 @@ namespace Components;
           );
 
           $iterator=new \RegexIterator(new \RecursiveIteratorIterator($directoryIterator),
-            '/\/([a-zA-Z0-9]+)\/resource\/i18n\/((?>[a-zA-Z0-9\/]+\/)|(?R))*([_a-zA-Z]+)\.xml$/',
-            \RegexIterator::GET_MATCH
+            '/\/([a-zA-Z0-9]+)\/resource\/i18n\/translation\/((?>[a-zA-Z0-9\/]+\/)|(?R))*([_a-zA-Z]+)\.json$/',
+              \RegexIterator::GET_MATCH
           );
 
           foreach($iterator as $path=>$match)
@@ -287,8 +289,10 @@ namespace Components;
           foreach(self::$m_cache as $loc=>$translations)
           {
             $l=I18n_Locale::forName($loc);
-            if($loc!==$l->language() && isset(self::$m_cache[$l->language()]))
-              self::$m_cache[$loc]=array_merge(self::$m_cache[$l->language()], self::$m_cache[$loc]);
+            $ll=$l->languageName();
+
+            if($loc!==$ll && isset(self::$m_cache[$ll]))
+              self::$m_cache[$loc]=array_merge(self::$m_cache[$ll], self::$m_cache[$loc]);
 
             Cache::set(self::CACHE_KEY."/$loc", self::$m_cache[$loc]);
 
@@ -311,28 +315,29 @@ namespace Components;
 
     private static function loadFile($path_, $locale_)
     {
-      if($xml=new \SimpleXMLElement(file_get_contents($path_)))
-        self::loadNamespace($xml, $locale_);
+      $translations=(array)json_decode(file_get_contents($path_), true);
+
+      self::loadNamespace($translations, $locale_);
     }
 
-    private static function loadNamespace(\SimpleXMLElement $node_, $locale_, $namespace_=null)
+    private static function loadNamespace(array $translations_, $locale_, $namespace_=null)
     {
-      if(0<$node_->count())
+      foreach($translations_ as $key=>$value)
       {
-        foreach($node_->children() as $node)
+        if(is_array($value))
         {
           if(null===$namespace_)
-            self::loadNamespace($node, $locale_, $node_->getName());
+            self::loadNamespace($value, $locale_, $key);
           else
-            self::loadNamespace($node, $locale_, "$namespace_/{$node_->getName()}");
+            self::loadNamespace($value, $locale_, "$namespace_/$key");
         }
-      }
-      else
-      {
-        if(null===$namespace_)
-          self::$m_cache[$locale_][$node_->getName()]=(string)$node_;
         else
-          self::$m_cache[$locale_]["$namespace_/{$node_->getName()}"]=(string)$node_;
+        {
+          if(null===$namespace_)
+            self::$m_cache[$locale_][$key]=$value;
+          else
+            self::$m_cache[$locale_]["$namespace_/$key"]=$value;
+        }
       }
     }
     //--------------------------------------------------------------------------
