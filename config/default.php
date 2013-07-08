@@ -9,6 +9,4 @@ namespace Components;
 
   I18n_Scriptlet_Import_Geo_Cities::serve('import/geo/cities');
   I18n_Scriptlet_Import_Geo_Map::serve('import/geo/map');
-
-  I18n_Scriptlet_Test::serve('test');
 ?>

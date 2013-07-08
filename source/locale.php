@@ -101,7 +101,7 @@ namespace Components;
       if(null===$this->m_country)
         $this->m_country=I18n_Country::valueOf($this->countryName());
 
-      $this->m_country;
+      return $this->m_country;
     }
 
     /**

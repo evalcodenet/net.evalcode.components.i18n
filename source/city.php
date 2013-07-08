@@ -5,14 +5,14 @@ namespace Components;
 
 
   /**
-   * I18n_Region
+   * I18n_City
    *
    * @package net.evalcode.components
    * @subpackage i18n
    *
    * @author evalcode.net
    */
-  class I18n_Region implements Object
+  class I18n_City implements Object
   {
     // CONSTRUCTION
     public function __construct(I18n_Location $location_)
@@ -42,7 +42,7 @@ namespace Components;
     /**
      * @return array|string
      */
-    public function cities()
+    public function districts()
     {
       return $this->m_location->children();
     }

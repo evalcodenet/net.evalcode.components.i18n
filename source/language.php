@@ -23,6 +23,19 @@ namespace Components;
 
     // STATIC ACCESSORS
     /**
+     * @param string $localeName_
+     *
+     * @return string
+     */
+    public static function forLocaleName($localeName_)
+    {
+      if(false===($pos=strpos($localeName_, '_')))
+        return static::valueOf($localeName_);
+
+      return static::valueOf(substr($localeName_, 0, $pos));
+    }
+
+    /**
      * @see Components\Enumeration::values()
      */
     public static function values()
@@ -38,7 +51,7 @@ namespace Components;
      */
     public function title()
     {
-      return I18n::translate('common/script/'.strtolower($this->m_name));
+      return I18n::translate('common/language/'.strtolower($this->m_name));
     }
     //--------------------------------------------------------------------------
 
