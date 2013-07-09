@@ -112,11 +112,11 @@ namespace Components;
       {
         self::$m_countries=array();
 
-        $xml=new \SimpleXMLElement(file_get_contents(dirname(__DIR__).'/resource/i18n/common/en.xml'));
+        $file=static::pathTranslationCommon()->getFile('en.json');
+        $json=(array)json_decode($file->getContent(), true);
 
-        self::$m_countries=array();
-        foreach($xml->xpath('//common/country/*') as $node)
-          self::$m_countries[$node->getName()]=$node->getName();
+        self::$m_countries=array_keys($json['common']['country']);
+        self::$m_countries=array_combine(self::$m_countries, self::$m_countries);
 
         Cache::set(self::CACHE_KEY.'/country', self::$m_countries);
       }
@@ -133,11 +133,11 @@ namespace Components;
       {
         self::$m_languages=array();
 
-        $xml=new \SimpleXMLElement(file_get_contents(dirname(__DIR__).'/resource/i18n/common/en.xml'));
+        $file=static::pathTranslationCommon()->getFile('en.json');
+        $json=(array)json_decode($file->getContent(), true);
 
-        self::$m_languages=array();
-        foreach($xml->xpath('//common/language/*') as $node)
-          self::$m_languages[$node->getName()]=$node->getName();
+        self::$m_languages=array_keys($json['common']['language']);
+        self::$m_languages=array_combine(self::$m_languages, self::$m_languages);
 
         Cache::set(self::CACHE_KEY.'/language', self::$m_languages);
       }
@@ -252,6 +252,10 @@ namespace Components;
      * @var array|string
      */
     private static $m_languages;
+    /**
+     * @var \Components\Io_Path
+     */
+    private static $m_pathTranslationCommon;
     //------
 
 
@@ -339,6 +343,17 @@ namespace Components;
             self::$m_cache[$locale_]["$namespace_/$key"]=$value;
         }
       }
+    }
+
+    /**
+     * @return \Components\Io_Path
+     */
+    private static function pathTranslationCommon()
+    {
+      if(null===self::$m_pathTranslationCommon)
+        self::$m_pathTranslationCommon=Io::pathComponentResource('i18n', 'resource', 'i18n', 'translation', 'common');
+
+      return self::$m_pathTranslationCommon;
     }
     //--------------------------------------------------------------------------
   }

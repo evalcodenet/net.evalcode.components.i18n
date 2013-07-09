@@ -11,14 +11,29 @@ namespace Components;
    * @subpackage i18n
    *
    * @author evalcode.net
+   *
+   * @method \Components\I18n_Country CN
+   * @method \Components\I18n_Country DE
+   * @method \Components\I18n_Country GB
+   * @method \Components\I18n_Country US
    */
-  class I18n_Country extends Enumeration
+  class I18n_Country extends I18n_Location
   {
     // PREDEFINED PROPERTIES
     const CN='CN';
     const DE='DE';
     const GB='GB';
     const US='US';
+    //--------------------------------------------------------------------------
+
+
+    // CONSTRUCTION
+    public function __construct($name_, array $data_=null)
+    {
+      parent::__construct($name_, $data_);
+
+      $this->m_translationKeyTitle='common/country/'.strtolower($name_);
+    }
     //--------------------------------------------------------------------------
 
 
@@ -37,38 +52,23 @@ namespace Components;
     }
 
     /**
-     * @see Components\Enumeration::values()
+     * @return array|string
      */
     public static function values()
     {
-      return array_values(self::$m_countries);
+      return self::$m_countries;
     }
     //--------------------------------------------------------------------------
 
 
-    // ACCESSORS/MUTATORS
+    // OVERRIDES/IMPLEMENTATS
     /**
-     * @return string
+     * (non-PHPdoc)
+     * @see \Components\I18n_Location::type()
      */
-    public function title()
+    public function type()
     {
-      return I18n::translate('common/country/'.strtolower($this->m_name));
-    }
-
-    /**
-     * @return array|string
-     */
-    public function cities()
-    {
-
-    }
-
-    /**
-     * @return array|string
-     */
-    public function regions()
-    {
-
+      return I18n_Location_Type::COUNTRY();
     }
     //--------------------------------------------------------------------------
 
@@ -78,11 +78,55 @@ namespace Components;
      * @var array|string
      */
     private static $m_countries=array(
-      self::CN=>self::CN,
-      self::DE=>self::DE,
-      self::GB=>self::GB,
-      self::US=>self::US
+      self::CN,
+      self::DE,
+      self::GB,
+      self::US
     );
+    //----
+
+
+    /**
+     * (non-PHPdoc)
+     * @see \Components\I18n_Location::initialized()
+     *
+     * @return \Components\I18n_Country
+     */
+    protected function initialized()
+    {
+      if(null===$this->m_data)
+      {
+        parent::initialized();
+
+        $name=strtolower($this->m_name);
+
+        if(false===($this->m_data=Cache::get("i18n/location/$name")))
+        {
+          $this->m_data['children']=array();
+          $path=Io::pathComponentResource('i18n', 'resource', 'i18n', 'location', $name);
+
+          if($path->exists())
+          {
+            foreach($path as $pathRegion)
+            {
+              $pathRegionAsString=$pathRegion->getPath();
+
+              if(false===is_file($pathRegionAsString))
+                continue;
+
+              $region=basename($pathRegionAsString);
+              $region=strtolower(substr($region, 0, strrpos($region, '.')));
+
+              $this->m_data['children'][$region]=null;
+            }
+          }
+
+          Cache::set("i18n/location/$name", $this->m_data);
+        }
+      }
+
+      return $this;
+    }
     //--------------------------------------------------------------------------
   }
 ?>

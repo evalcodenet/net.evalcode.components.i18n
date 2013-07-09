@@ -11,56 +11,134 @@ namespace Components;
    * @subpackage i18n
    *
    * @author evalcode.net
+   *
+   * @property \Componens\I18n_Location parent
    */
   class I18n_Location implements Object, Value_String
   {
     // CONSTRUCTION
-    public function __construct($value_)
+    public function __construct($name_, array $data_=null)
     {
-      $this->m_value=$value_;
+      $this->m_name=$name_;
+      $this->m_data=$data_;
+      $this->m_translationKeyTitle="common/location/$name_";
     }
     //--------------------------------------------------------------------------
 
 
-    // ACCESSORS/MUTATORS
+    // STATIC ACCESSORS
     /**
      * @param string $value_
      *
      * @return \Components\I18n_Location
      */
-    public static function valueOf($value_)
+    public static function valueOf($name_)
     {
-      return new self($value_);
+      if(false===isset(self::$m_instance[$name_]))
+        self::$m_instance[$name_]=new static($name_);
+
+      return self::$m_instance[$name_];
+    }
+
+    /**
+     * @return \Components\I18n_Location
+     */
+    public static function __callStatic($name_, array $args_=array())
+    {
+      return static::valueOf($name_);
     }
     //--------------------------------------------------------------------------
 
 
     // ACCESSORS/MUTATORS
     /**
+     * @return string
+     */
+    public function name()
+    {
+      return $this->m_name;
+    }
+
+    /**
+     * @return string
+     */
+    public function title()
+    {
+      return I18n::translate($this->m_translationKeyTitle);
+    }
+
+    /**
+     * @return \Components\I18n_Location_Type
+     */
+    public function type()
+    {
+      if(null===$this->m_type)
+      {
+        if(isset($this->initialized()->m_data['type']))
+          $this->m_type=I18n_Location_Type::forKey($this->m_data['type']);
+      }
+
+      return $this->m_type;
+    }
+
+    /**
      * @return \Components\Point
      */
     public function position()
     {
-      return $this->initialize()->m_position;
+      if(null===$this->m_position)
+      {
+        if(isset($this->initialized()->m_data['latitude']) && $this->m_data['longitude'])
+          $this->m_position=Point::of($this->m_data['latitude'], $this->m_data['longitude']);
+      }
+
+      return $this->m_position;
     }
 
-    public function cast()
+    /**
+     * @return array|string
+     */
+    public function childNames()
     {
-      return $this->initialize()->m_impl;
+      return array_keys($this->initialized()->m_data['children']);
     }
 
-    public function title()
-    {
-      // FIXME Merge into common translations
-      return $this->initialize()->m_data['title'][I18n::locale()->languageName()];
-    }
+    // TODO Implement Iterator.
     //--------------------------------------------------------------------------
 
 
     // OVERRIDES/IMPLEMENTS
+    public function __get($name_)
+    {
+      if('parent'===$name_)
+      {
+        $name=substr($this->m_name, 0, strrpos($this->m_name, '_'));
+
+        if(false===strpos($name, '_'))
+          return I18n_Country::valueOf($name);
+
+        return static::valueOf($name);
+      }
+
+      if(false===isset($this->m_children[$name_]))
+      {
+        if(array_key_exists($name_, $this->initialized()->m_data['children']))
+          $this->m_children[$name_]=new self(strtolower($this->m_name."_$name_"), $this->m_data['children'][$name_]);
+      }
+
+      if(false===isset($this->m_children[$name_]))
+        return null;
+
+      return $this->m_children[$name_];
+    }
+
+    /**
+     * (non-PHPdoc)
+     * @see \Components\Value_String::value()
+     */
     public function value()
     {
-      return $this->m_value;
+      return $this->m_name;
     }
 
     /**
@@ -69,7 +147,7 @@ namespace Components;
      */
     public function hashCode()
     {
-      return $this->m_position->hashCode();
+      return object_hash($this);
     }
 
     /**
@@ -79,7 +157,7 @@ namespace Components;
     public function equals($object_)
     {
       if($object_ instanceof self)
-        return $this->m_position->equals($object_->m_position);
+        return String::equal($this->m_name, $object_->m_name);
 
       return false;
     }
@@ -90,90 +168,100 @@ namespace Components;
      */
     public function __toString()
     {
-      return sprintf('%s@%s{position: %s}',
+      return sprintf('%s@%s{name: %s, type: %s, position: %s}',
         __CLASS__,
         $this->hashCode(),
-        $this->m_position
+        $this->m_name,
+        $this->type(),
+        $this->position()
       );
     }
     //--------------------------------------------------------------------------
 
 
     // IMPLEMENTATION
-    private static $m_types=array(
-      2=>'\\Components\\I18n_Region',
-      3=>'\\Components\\I18n_City',
-      4=>'\\Components\\I18n_District'
-    );
+    /**
+     * @var \Components\Io_Path
+     */
+    protected static $m_pathResource;
 
     /**
-     * @var boolean
+     * @var array|\Components\I18n_Location
      */
-    private $m_initialized=false;
+    private static $m_instance=array();
+
+    /**
+     * @var array|\Components\I18n_Location
+     */
+    protected $m_children=array();
+    /**
+     * @var array|string
+     */
+    protected $m_data;
     /**
      * @var string
      */
-    private $m_data=array();
+    protected $m_name;
     /**
      * @var string
      */
-    private $m_value;
+    protected $m_translationKeyTitle;
+    /**
+     * @var \Components\I18n_Location_Type
+     */
+    protected $m_type;
     /**
      * @var \Components\Point
      */
-    private $m_position;
-    /**
-     * @var \Components\I18n_Location_Concrete
-     */
-    private $m_impl;
+    protected $m_position;
     //-----
 
 
-    protected function initialize()
+    /**
+     * @return \Components\I18n_Location
+     */
+    protected function initialized()
     {
-      if(false===$this->m_initialized)
+      if(null===$this->m_data)
       {
-        if(false===($this->m_data=Cache::get("i18n/location/{$this->m_value}")))
+        if(false===($this->m_data=Cache::get("i18n/location/{$this->m_name}")))
         {
-          $file=null;
-          $sub=array();
-          $path=Io::path(Environment::pathComponentResource('i18n', 'resource', 'i18n', 'location'));
+          if(null===self::$m_pathResource)
+            self::$m_pathResource=Io::path(Environment::pathComponentResource('i18n', 'resource', 'i18n', 'location'));
 
-          $chunks=explode('_', $this->m_value);
+          $file=null;
+
+          $sub=array();
+          $chunks=explode('_', strtolower($this->m_name));
+
           while(count($chunks))
           {
-            $file=$path->getFile(implode('/', $chunks).'.json');
+            $file=self::$m_pathResource->getFile(implode('/', $chunks).'.json');
 
             if($file->exists())
               break;
 
-            array_push($sub, array_pop($chunks));
+            array_unshift($sub, array_pop($chunks));
           }
 
           if(false===$file->exists())
+          {
+            Cache::set("i18n/location/{$this->m_name}", array());
+
             return $this;
+          }
 
           $json=$file->getContent();
-          $value=json_decode($json, true);
-
-          $this->m_data=$value;
+          $this->m_data=json_decode($json, true);
 
           if(0<count($sub))
           {
             while($next=array_shift($sub))
-              $this->m_data=&$this->m_data[$next];
+              $this->m_data=&$this->m_data['children'][$next];
           }
 
-          Cache::set("i18n/location/{$this->m_value}", $this->m_data);
+          Cache::set("i18n/location/{$this->m_name}", $this->m_data);
         }
-
-        if(isset($this->m_data['latitude']) && $this->m_data['longitude'])
-          $this->m_position=Point::of($this->m_data['latitude'], $this->m_data['longitude']);
-
-        $type=self::$m_types[$this->m_data['type']];
-        $this->m_impl=new $type($this);
-
-        $this->m_initialized=true;
       }
 
       return $this;

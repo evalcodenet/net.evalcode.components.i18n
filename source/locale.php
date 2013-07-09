@@ -72,7 +72,8 @@ namespace Components;
     }
 
     /**
-     * @see Components\Enumeration::values()
+     * (non-PHPdoc)
+     * @see \Components\Enumeration::values()
      */
     public static function values()
     {
