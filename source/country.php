@@ -96,11 +96,9 @@ namespace Components;
     {
       if(null===$this->m_data)
       {
-        parent::initialized();
-
         $name=strtolower($this->m_name);
 
-        if(false===($this->m_data=Cache::get("i18n/location/$name")))
+        if(false===($this->m_data=Cache::get("i18n/country/$name")))
         {
           $this->m_data['children']=array();
           $path=Io::pathComponentResource('i18n', 'resource', 'i18n', 'location', $name);
@@ -121,7 +119,7 @@ namespace Components;
             }
           }
 
-          Cache::set("i18n/location/$name", $this->m_data);
+          Cache::set("i18n/country/$name", $this->m_data);
         }
       }
 

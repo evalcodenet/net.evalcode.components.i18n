@@ -103,6 +103,40 @@ namespace Components;
       return array_keys($this->initialized()->m_data['children']);
     }
 
+    /**
+     * @return array|string
+     */
+    public function path()
+    {
+      if(null===$this->m_path)
+      {
+        if($parent=$this->parent)
+          $this->m_path=$parent->path();
+        else
+          $this->m_path=array();
+
+        $this->m_path[]=$this->m_name;
+      }
+
+      return $this->m_path;
+    }
+
+    /**
+     * @return array|string
+     */
+    public function titlePath()
+    {
+      if(null===$this->m_titlePath)
+      {
+        if($parent=$this->parent)
+          $this->m_titlePath=$parent->titlePath().', '.$this->title();
+        else
+          $this->m_titlePath=$this->title();
+      }
+
+      return $this->m_titlePath;
+    }
+
     // TODO Implement Iterator.
     //--------------------------------------------------------------------------
 
@@ -113,6 +147,9 @@ namespace Components;
       if('parent'===$name_)
       {
         $name=substr($this->m_name, 0, strrpos($this->m_name, '_'));
+
+        if(!$name)
+          return null;
 
         if(false===strpos($name, '_'))
           return I18n_Country::valueOf($name);
@@ -214,6 +251,15 @@ namespace Components;
      * @var \Components\Point
      */
     protected $m_position;
+
+    /**
+     * @var array|string
+     */
+    private $m_path;
+    /**
+     * @var string
+     */
+    private $m_titlePath;
     //-----
 
 
