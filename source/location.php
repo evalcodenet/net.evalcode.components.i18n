@@ -98,9 +98,15 @@ namespace Components;
     /**
      * @return array|string
      */
-    public function childNames()
+    public function childNames($sorted_=false)
     {
-      return array_keys($this->initialized()->m_data['children']);
+      if(false===$sorted_)
+        return array_keys($this->initialized()->m_data['children']);
+
+      $names=array_keys($this->initialized()->m_data['children']);
+      asort($names);
+
+      return $names;
     }
 
     /**
