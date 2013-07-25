@@ -61,7 +61,7 @@ namespace Components;
     //--------------------------------------------------------------------------
 
 
-    // OVERRIDES/IMPLEMENTATS
+    // OVERRIDES/IMPLEMENTS
     /**
      * (non-PHPdoc)
      * @see \Components\I18n_Location::type()
