@@ -71,9 +71,7 @@ namespace Components;
       return self::$locale();
     }
 
-    /**
-     * (non-PHPdoc)
-     * @see \Components\Enumeration::values()
+    /**     * @see \Components\Enumeration::values() \Components\Enumeration::values()
      */
     public static function values()
     {

@@ -138,7 +138,7 @@ namespace Components;
     private static $m_unicodeRanges=array(
       'han'=>array(
         /**
-         * @see \Components\I18n_Script_Hans::$unicodeRange
+         * @see \Components\I18n_Script_Hans::$unicodeRange \Components\I18n_Script_Hans::$unicodeRange
          */
         0x4e00, 0x9fff
       )

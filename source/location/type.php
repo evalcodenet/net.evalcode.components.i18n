@@ -32,9 +32,7 @@ namespace Components;
 
 
     // STATIC ACCESSORS
-    /**
-     * (non-PHPdoc)
-     * @see \Components\Enumeration::values()
+    /**     * @see \Components\Enumeration::values() \Components\Enumeration::values()
      */
     public static function values()
     {

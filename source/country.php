@@ -62,9 +62,7 @@ namespace Components;
 
 
     // OVERRIDES/IMPLEMENTS
-    /**
-     * (non-PHPdoc)
-     * @see \Components\I18n_Location::type()
+    /**     * @see \Components\I18n_Location::type() \Components\I18n_Location::type()
      */
     public function type()
     {
@@ -86,9 +84,7 @@ namespace Components;
     //----
 
 
-    /**
-     * (non-PHPdoc)
-     * @see \Components\I18n_Location::initialized()
+    /**     * @see \Components\I18n_Location::initialized() \Components\I18n_Location::initialized()
      *
      * @return \Components\I18n_Country
      */

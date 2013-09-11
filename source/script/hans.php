@@ -34,9 +34,7 @@ namespace Components;
 
 
     // OVERRIDES/IMPLEMENTS
-    /**
-     * (non-PHPdoc)
-     * @see \Components\I18n_Script::transformToLatn()
+    /**     * @see \Components\I18n_Script::transformToLatn() \Components\I18n_Script::transformToLatn()
      */
     public function transformToLatn($string_)
     {
@@ -60,9 +58,7 @@ namespace Components;
       return rtrim($transformed, ' ');
     }
 
-    /**
-     * (non-PHPdoc)
-     * @see \Components\I18n_Script::detect()
+    /**     * @see \Components\I18n_Script::detect() \Components\I18n_Script::detect()
      */
     public function detect($string_)
     {
