@@ -7,8 +7,8 @@ namespace Components;
   /**
    * I18n_Country
    *
-   * @package net.evalcode.components
-   * @subpackage i18n
+   * @api
+   * @package net.evalcode.components.i18n
    *
    * @author evalcode.net
    *
@@ -52,7 +52,7 @@ namespace Components;
     }
 
     /**
-     * @return array|string
+     * @return string[]
      */
     public static function values()
     {
@@ -61,8 +61,9 @@ namespace Components;
     //--------------------------------------------------------------------------
 
 
-    // OVERRIDES/IMPLEMENTS
-    /**     * @see \Components\I18n_Location::type() \Components\I18n_Location::type()
+    // OVERRIDES
+    /**
+     * @see \Components\I18n_Location::type() \Components\I18n_Location::type()
      */
     public function type()
     {
@@ -73,7 +74,7 @@ namespace Components;
 
     // IMPLEMENTATION
     /**
-     * @var array|string
+     * @var string[]
      */
     private static $m_countries=array(
       self::CN,
@@ -84,7 +85,8 @@ namespace Components;
     //----
 
 
-    /**     * @see \Components\I18n_Location::initialized() \Components\I18n_Location::initialized()
+    /**
+     * @see \Components\I18n_Location::initialized() \Components\I18n_Location::initialized()
      *
      * @return \Components\I18n_Country
      */

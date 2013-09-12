@@ -7,8 +7,8 @@ namespace Components;
   /**
    * I18n_Locale
    *
-   * @package net.evalcode.components
-   * @subpackage i18n
+   * @api
+   * @package net.evalcode.components.i18n
    *
    * @author evalcode.net
    *
@@ -71,7 +71,8 @@ namespace Components;
       return self::$locale();
     }
 
-    /**     * @see \Components\Enumeration::values() \Components\Enumeration::values()
+    /**
+     * @see \Components\Enumeration::values() \Components\Enumeration::values()
      */
     public static function values()
     {
@@ -211,7 +212,7 @@ namespace Components;
 
     // IMPLEMENTATION
     /**
-     * @var array|string
+     * @var string[]
      */
     private static $m_locales=array(
       self::en=>self::en,
@@ -227,7 +228,7 @@ namespace Components;
     // TODO Configurable defaults
     // TODO Determine available locales
     /**
-     * @var array|string
+     * @var string[]
      */
     private static $m_systemLocales=array(
       self::en=>'en_US.utf8',
@@ -241,7 +242,7 @@ namespace Components;
     // TODO Configurable defaults
     // TODO Determine available charsets
     /**
-     * @var array|string
+     * @var string[]
      */
     private static $m_charsets=array(
       self::en=>Io_Charset::UTF_8,
@@ -253,7 +254,7 @@ namespace Components;
       self::zh_CN=>Io_Charset::UTF_8
     );
     /**
-     * @var array|string
+     * @var string[]
      */
     private static $m_countries=array(
       self::de=>I18n_Country::DE,
@@ -261,7 +262,7 @@ namespace Components;
       self::zh=>I18n_Country::CN
     );
     /**
-     * @var array|string
+     * @var string[]
      */
     private static $m_scripts=array(
       self::de=>I18n_Script::Latn,

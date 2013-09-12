@@ -7,8 +7,8 @@ namespace Components;
   /**
    * I18n_Location
    *
-   * @package net.evalcode.components
-   * @subpackage i18n
+   * @api
+   * @package net.evalcode.components.i18n
    *
    * @author evalcode.net
    *
@@ -50,7 +50,7 @@ namespace Components;
     //--------------------------------------------------------------------------
 
 
-    // ACCESSORS/MUTATORS
+    // ACCESSORS
     /**
      * @return string
      */
@@ -96,7 +96,7 @@ namespace Components;
     }
 
     /**
-     * @return array|string
+     * @return string[]
      */
     public function childNames($sorted_=false)
     {
@@ -110,7 +110,7 @@ namespace Components;
     }
 
     /**
-     * @return array|string
+     * @return string[]
      */
     public function path()
     {
@@ -128,7 +128,7 @@ namespace Components;
     }
 
     /**
-     * @return array|string
+     * @return string[]
      */
     public function titlePath()
     {
@@ -147,7 +147,7 @@ namespace Components;
     //--------------------------------------------------------------------------
 
 
-    // OVERRIDES/IMPLEMENTS
+    // OVERRIDES
     public function __get($name_)
     {
       if('parent'===$name_)
@@ -175,21 +175,24 @@ namespace Components;
       return $this->m_children[$name_];
     }
 
-    /**     * @see \Components\Value_String::value() \Components\Value_String::value()
+    /**
+     * @see \Components\Value_String::value() \Components\Value_String::value()
      */
     public function value()
     {
       return $this->m_name;
     }
 
-    /**     * @see \Components\Object::hashCode() \Components\Object::hashCode()
+    /**
+     * @see \Components\Object::hashCode() \Components\Object::hashCode()
      */
     public function hashCode()
     {
       return object_hash($this);
     }
 
-    /**     * @see \Components\Object::equals() \Components\Object::equals()
+    /**
+     * @see \Components\Object::equals() \Components\Object::equals()
      */
     public function equals($object_)
     {
@@ -199,7 +202,8 @@ namespace Components;
       return false;
     }
 
-    /**     * @see \Components\Object::__toString() \Components\Object::__toString()
+    /**
+     * @see \Components\Object::__toString() \Components\Object::__toString()
      */
     public function __toString()
     {
@@ -219,18 +223,16 @@ namespace Components;
      * @var \Components\Io_Path
      */
     protected static $m_pathResource;
-
     /**
-     * @var array|\Components\I18n_Location
+     * @var \Components\I18n_Location[]
      */
     private static $m_instance=array();
-
     /**
-     * @var array|\Components\I18n_Location
+     * @var \Components\I18n_Location[]
      */
     protected $m_children=array();
     /**
-     * @var array|string
+     * @var string[]
      */
     protected $m_data;
     /**
@@ -249,9 +251,8 @@ namespace Components;
      * @var \Components\Point
      */
     protected $m_position;
-
     /**
-     * @var array|string
+     * @var string[]
      */
     private $m_path;
     /**

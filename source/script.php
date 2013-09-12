@@ -7,8 +7,8 @@ namespace Components;
   /**
    * I18n_Script
    *
-   * @package net.evalcode.components
-   * @subpackage i18n
+   * @api
+   * @package net.evalcode.components.i18n
    *
    * @author evalcode.net
    *
@@ -27,7 +27,7 @@ namespace Components;
 
     // STATIC ACCESSORS
     /**
-     * @see Components\Enumeration::values() Components\Enumeration::values()
+     * @see \Components\Enumeration::values() \Components\Enumeration::values()
      */
     public static function values()
     {
@@ -36,7 +36,7 @@ namespace Components;
     //--------------------------------------------------------------------------
 
 
-    // ACCESSORS/MUTATORS
+    // ACCESSORS
     /**
      * @return string
      */
@@ -100,7 +100,7 @@ namespace Components;
     //--------------------------------------------------------------------------
 
 
-    // OVERRIDES/IMPLEMENTS
+    // OVERRIDES
     public function __call($name_, array $args_=array())
     {
       $script=array_shift($args_);
@@ -121,7 +121,7 @@ namespace Components;
 
     // IMPLEMENTATION
     /**
-     * @var array|string
+     * @var string[]
      */
     private static $m_scripts=array(
       self::Hans=>self::Hans,

@@ -7,8 +7,9 @@ namespace Components;
   /**
    * I18n_Location_Type
    *
-   * @package net.evalcode.components
-   * @subpackage i18n.location
+   * @api
+   * @package net.evalcode.components.i18n
+   * @subpackage location
    *
    * @author evalcode.net
    *
@@ -32,7 +33,8 @@ namespace Components;
 
 
     // STATIC ACCESSORS
-    /**     * @see \Components\Enumeration::values() \Components\Enumeration::values()
+    /**
+     * @see \Components\Enumeration::values() \Components\Enumeration::values()
      */
     public static function values()
     {
@@ -41,7 +43,7 @@ namespace Components;
     //--------------------------------------------------------------------------
 
 
-    // ACCESSORS/MUTATORS
+    // ACCESSORS
     /**
      * @return string
      */

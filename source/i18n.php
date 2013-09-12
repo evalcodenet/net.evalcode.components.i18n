@@ -36,8 +36,8 @@ namespace Components;
    * locale exists. This fallback is again implemented in favor of performance
    * and in expense of cached data volume.
    *
-   * @package net.evalcode.components
-   * @subpackage i18n
+   * @api
+   * @package net.evalcode.components.i18n
    *
    * @author evalcode.net
    */
@@ -198,7 +198,7 @@ namespace Components;
     }
 
     /**
-     * @param array|string $args_
+     * @param string[] $args_
      */
     public static function translatevf(array $args_)
     {
@@ -225,31 +225,31 @@ namespace Components;
 
     // IMPLEMENTATION
     /**
-     * @var array|string
+     * @var string[]
      */
     private static $m_cache=array();
     /**
-     * @var array|string
+     * @var string[]
      */
     private static $m_translations=array();
     /**
-     * @var array|boolean
+     * @var boolean[]
      */
     private static $m_loaded=array();
     /**
-     * @var array|Components\I18n_Locale
+     * @var \Components\I18n_Locale[]
      */
     private static $m_locales=array();
     /**
-     * @var Components\I18n_Locale
+     * @var \Components\I18n_Locale
      */
     private static $m_locale;
     /**
-     * @var array|string
+     * @var string[]
      */
     private static $m_countries;
     /**
-     * @var array|string
+     * @var string[]
      */
     private static $m_languages;
     /**

@@ -7,8 +7,8 @@ namespace Components;
   /**
    * I18n_Scriptlet_Import_Cldr_Common
    *
-   * @package net.evalcode.components
-   * @subpackage i18n.scriptlet.import.cldr
+   * @package net.evalcode.components.i18n
+   * @subpackage scriptlet.import.cldr
    *
    * @author evalcode.net
    *

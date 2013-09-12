@@ -7,8 +7,9 @@ namespace Components;
   /**
    * I18n_Script_Hans
    *
-   * @package net.evalcode.components
-   * @subpackage i18n.script
+   * @api
+   * @package net.evalcode.components.i18n
+   * @subpackage script
    *
    * @author evalcode.net
    */
@@ -33,8 +34,9 @@ namespace Components;
     //--------------------------------------------------------------------------
 
 
-    // OVERRIDES/IMPLEMENTS
-    /**     * @see \Components\I18n_Script::transformToLatn() \Components\I18n_Script::transformToLatn()
+    // OVERRIDES
+    /**
+     * @see \Components\I18n_Script::transformToLatn() \Components\I18n_Script::transformToLatn()
      */
     public function transformToLatn($string_)
     {
@@ -58,7 +60,8 @@ namespace Components;
       return rtrim($transformed, ' ');
     }
 
-    /**     * @see \Components\I18n_Script::detect() \Components\I18n_Script::detect()
+    /**
+     * @see \Components\I18n_Script::detect() \Components\I18n_Script::detect()
      */
     public function detect($string_)
     {

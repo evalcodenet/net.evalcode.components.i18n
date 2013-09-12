@@ -7,8 +7,8 @@ namespace Components;
   /**
    * I18n_Language
    *
-   * @package net.evalcode.components
-   * @subpackage i18n
+   * @api
+   * @package net.evalcode.components.i18n
    *
    * @author evalcode.net
    */
@@ -36,7 +36,7 @@ namespace Components;
     }
 
     /**
-     * @see Components\Enumeration::values() Components\Enumeration::values()
+     * @see \Components\Enumeration::values() \Components\Enumeration::values()
      */
     public static function values()
     {
@@ -45,7 +45,7 @@ namespace Components;
     //--------------------------------------------------------------------------
 
 
-    // ACCESSORS/MUTATORS
+    // ACCESSORS
     /**
      * @return string
      */
@@ -58,7 +58,7 @@ namespace Components;
 
     // IMPLEMENTATION
     /**
-     * @var array|string
+     * @var string[]
      */
     private static $m_languages=array(
       self::en=>self::de,
