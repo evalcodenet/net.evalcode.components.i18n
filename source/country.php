@@ -98,7 +98,7 @@ namespace Components;
 
         if(false===($this->m_data=Cache::get("i18n/country/$name")))
         {
-          $this->m_data['children']=array();
+          $this->m_data['children']=[];
           $path=Io::pathComponentResource('i18n', 'resource', 'i18n', 'location', $name);
 
           if($path->exists())

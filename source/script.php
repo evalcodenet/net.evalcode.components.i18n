@@ -101,7 +101,7 @@ namespace Components;
 
 
     // OVERRIDES
-    public function __call($name_, array $args_=array())
+    public function __call($name_, array $args_=[])
     {
       $script=array_shift($args_);
 

@@ -43,7 +43,7 @@ namespace Components;
     /**
      * @return \Components\I18n_Location
      */
-    public static function __callStatic($name_, array $args_=array())
+    public static function __callStatic($name_, array $args_=[])
     {
       return static::valueOf($name_);
     }
@@ -119,7 +119,7 @@ namespace Components;
         if($parent=$this->parent)
           $this->m_path=$parent->path();
         else
-          $this->m_path=array();
+          $this->m_path=[];
 
         $this->m_path[]=$this->m_name;
       }
@@ -226,11 +226,11 @@ namespace Components;
     /**
      * @var \Components\I18n_Location[]
      */
-    private static $m_instance=array();
+    private static $m_instance=[];
     /**
      * @var \Components\I18n_Location[]
      */
-    protected $m_children=array();
+    protected $m_children=[];
     /**
      * @var string[]
      */
@@ -276,7 +276,7 @@ namespace Components;
 
           $file=null;
 
-          $sub=array();
+          $sub=[];
           $chunks=explode('_', strtolower($this->m_name));
 
           while(count($chunks))
@@ -291,7 +291,7 @@ namespace Components;
 
           if(false===$file->exists())
           {
-            Cache::set("i18n/location/{$this->m_name}", array());
+            Cache::set("i18n/location/{$this->m_name}", []);
 
             return $this;
           }

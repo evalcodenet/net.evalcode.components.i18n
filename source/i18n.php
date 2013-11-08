@@ -70,7 +70,7 @@ namespace Components;
       array_push(self::$m_locales, $locale_);
 
       if(false===isset(self::$m_cache[$locale_->name()]))
-        self::$m_cache[$locale_->name()]=array();
+        self::$m_cache[$locale_->name()]=[];
 
       self::$m_translations=&self::$m_cache[$locale_->name()];
 
@@ -89,7 +89,7 @@ namespace Components;
       if(self::$m_locale=end(self::$m_locales))
       {
         if(false===isset(self::$m_cache[self::$m_locale->name()]))
-          self::$m_cache[self::$m_locale->name()]=array();
+          self::$m_cache[self::$m_locale->name()]=[];
 
         self::$m_translations=&self::$m_cache[self::$m_locale->name()];
       }
@@ -110,7 +110,7 @@ namespace Components;
 
       if(false===self::$m_countries)
       {
-        self::$m_countries=array();
+        self::$m_countries=[];
 
         $file=static::pathTranslationCommon()->getFile('en.json');
         $json=(array)json_decode($file->getContent(), true);
@@ -131,7 +131,7 @@ namespace Components;
 
       if(false===self::$m_languages)
       {
-        self::$m_languages=array();
+        self::$m_languages=[];
 
         $file=static::pathTranslationCommon()->getFile('en.json');
         $json=(array)json_decode($file->getContent(), true);
@@ -227,19 +227,19 @@ namespace Components;
     /**
      * @var string[]
      */
-    private static $m_cache=array();
+    private static $m_cache=[];
     /**
      * @var string[]
      */
-    private static $m_translations=array();
+    private static $m_translations=[];
     /**
      * @var boolean[]
      */
-    private static $m_loaded=array();
+    private static $m_loaded=[];
     /**
      * @var \Components\I18n_Locale[]
      */
-    private static $m_locales=array();
+    private static $m_locales=[];
     /**
      * @var \Components\I18n_Locale
      */
@@ -269,14 +269,14 @@ namespace Components;
         if(self::$m_cache[$locale]=Cache::get(self::CACHE_KEY."/$locale"))
           return self::$m_loaded[$locale]=true;
 
-        self::$m_cache[$locale]=array();
+        self::$m_cache[$locale]=[];
 
         if(false===isset(self::$m_loaded[$language]))
         {
           if(self::$m_cache[$language]=Cache::get(self::CACHE_KEY."/$language"))
             return self::$m_loaded[$language]=true;
 
-          self::$m_cache[$language]=array();
+          self::$m_cache[$language]=[];
 
           $directoryIterator=new \RecursiveDirectoryIterator(Environment::pathComponents(),
             \RecursiveDirectoryIterator::SKIP_DOTS|\RecursiveDirectoryIterator::FOLLOW_SYMLINKS

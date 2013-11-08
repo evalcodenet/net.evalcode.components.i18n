@@ -29,20 +29,20 @@ namespace Components;
 
       $ranges=array_chunk(self::$m_unicodeRanges[$script_], 2);
 
-      $range=array();
+      $range=[];
       foreach($ranges as $r)
         $range=array_merge($range, range(reset($r), end($r)));
 
       $range=array_flip($range);
 
-      $mapScript=array();
+      $mapScript=[];
 
       $mapScriptUnicode=&$mapScript['unicode'];
       $mapScriptTransformations=&$mapScript['transform'];
 
       foreach(self::$m_scripts[$script_] as $transformation)
       {
-        $mapScriptTransformations[$transformation]=array();
+        $mapScriptTransformations[$transformation]=[];
         $mapScriptTransformationsCurrent=&$mapScriptTransformations[$transformation];
 
         $source=self::$m_sources[$script_][$transformation];
@@ -85,7 +85,7 @@ namespace Components;
         $string=implode(",\n", $mapScriptUnicode);
       }
 
-      $transform=array();;
+      $transform=[];;
       foreach($mapScript['transform'] as $script=>$transformations)
       {
         $transform[]=sprintf('    "%1$s":%3$s    {%3$s%2$s%3$s    }%3$s',
