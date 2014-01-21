@@ -16,12 +16,12 @@ namespace Components;
   class I18n_Script_Hans extends I18n_Script
   {
     // PREDEFINED PROPERTIES
-    const CACHE_KEY='i18n/script/hans';
+    const CACHE_KEY='i18n_script_hans';
     //--------------------------------------------------------------------------
 
 
     // PROPERTIES
-    public static $unicodeRange=array(
+    public static $unicodeRange=[
       0x4e00, 0x9fff
       // XXX Evaluate if following are required when actual issues come up.
       // 0x3400, 0x4dbf,
@@ -30,13 +30,13 @@ namespace Components;
       // 0x2b740, 0x2b81f,
       // 0x9f00, 0xfaff,
       // 0x2f800, 0x2fa1f
-    );
+    ];
     //--------------------------------------------------------------------------
 
 
     // OVERRIDES
     /**
-     * @see \Components\I18n_Script::transformToLatn() \Components\I18n_Script::transformToLatn()
+     * @see \Components\I18n_Script::transformToLatn() transformToLatn
      */
     public function transformToLatn($string_)
     {
@@ -61,7 +61,7 @@ namespace Components;
     }
 
     /**
-     * @see \Components\I18n_Script::detect() \Components\I18n_Script::detect()
+     * @see \Components\I18n_Script::detect() detect
      */
     public function detect($string_)
     {
@@ -99,7 +99,7 @@ namespace Components;
     // TODO Too slow. Split map into chunks and load ranges on demand or generate php source to include here ..
     private static function load()
     {
-      if(!$map=Cache::get(self::CACHE_KEY.'/map'))
+      if(!$map=Cache::get(self::CACHE_KEY.'_map'))
       {
         $path=Environment::pathComponentResource(
           'i18n', 'resource', 'i18n', 'script', 'hans.json'
@@ -107,7 +107,7 @@ namespace Components;
 
         $map=json_decode(Io_File::valueOf($path)->getContent(), true);
 
-        Cache::set(self::CACHE_KEY.'/map', $map);
+        Cache::set(self::CACHE_KEY.'_map', $map);
       }
 
       self::$m_unicode=&$map['unicode'];
