@@ -106,7 +106,7 @@ namespace Components;
     public static function countries()
     {
       if(null===self::$m_countries)
-        self::$m_countries=Cache::get(self::CACHE_KEY.'/country');
+        self::$m_countries=Cache::get(self::CACHE_KEY.'-country');
 
       if(false===self::$m_countries)
       {
@@ -118,7 +118,7 @@ namespace Components;
         self::$m_countries=array_keys($json['common']['country']);
         self::$m_countries=array_combine(self::$m_countries, self::$m_countries);
 
-        Cache::set(self::CACHE_KEY.'/country', self::$m_countries);
+        Cache::set(self::CACHE_KEY.'-country', self::$m_countries);
       }
 
       return self::$m_countries;
@@ -127,7 +127,7 @@ namespace Components;
     public static function languages()
     {
       if(null===self::$m_languages)
-        self::$m_languages=Cache::get(self::CACHE_KEY.'/language');
+        self::$m_languages=Cache::get(self::CACHE_KEY.'-language');
 
       if(false===self::$m_languages)
       {
@@ -139,7 +139,7 @@ namespace Components;
         self::$m_languages=array_keys($json['common']['language']);
         self::$m_languages=array_combine(self::$m_languages, self::$m_languages);
 
-        Cache::set(self::CACHE_KEY.'/language', self::$m_languages);
+        Cache::set(self::CACHE_KEY.'-language', self::$m_languages);
       }
 
       return self::$m_languages;
