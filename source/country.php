@@ -76,12 +76,12 @@ namespace Components;
     /**
      * @var string[]
      */
-    private static $m_countries=array(
+    private static $m_countries=[
       self::CN,
       self::DE,
       self::GB,
       self::US
-    );
+    ];
     //----
 
 

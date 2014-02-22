@@ -34,6 +34,7 @@ namespace Components;
      */
     public static function valueOf($name_)
     {
+      $name_=strtolower($name_);
       if(false===isset(self::$m_instance[$name_]))
         self::$m_instance[$name_]=new static($name_);
 
