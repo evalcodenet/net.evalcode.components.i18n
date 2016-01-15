@@ -55,14 +55,14 @@ namespace Components;
 
 
     // IMPLEMENTATION
-    private static $m_types=array(
+    private static $m_types=[
       'WORLD',
       'CONTINENT',
       'COUNTRY',
       'REGION',
       'CITY',
       'DISTRICT'
-    );
+    ];
     //--------------------------------------------------------------------------
   }
 ?>

@@ -25,7 +25,7 @@ namespace Components;
 
     private function importScript($script_)
     {
-      $target=Environment::pathComponentResource('i18n', 'resource', 'i18n', 'script', "$script_.json");
+      $target=Environment::pathComponentsResource('i18n', 'resource', 'i18n', 'script', "$script_.json");
 
       $ranges=array_chunk(self::$m_unicodeRanges[$script_], 2);
 
@@ -46,7 +46,7 @@ namespace Components;
         $mapScriptTransformationsCurrent=&$mapScriptTransformations[$transformation];
 
         $source=self::$m_sources[$script_][$transformation];
-        $source=Environment::pathComponentResource('i18n', 'resource', 'cldr', $source);
+        $source=Environment::pathComponentsResource('i18n', 'resource', 'cldr', $source);
 
         // TODO Implement Io_File_Xml
         $xml=new \SimpleXMLElement(Io_File::valueOf($source)->getContent());

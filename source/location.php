@@ -189,7 +189,7 @@ namespace Components;
      */
     public function hashCode()
     {
-      return object_hash($this);
+      return \math\hasho($this);
     }
 
     /**
@@ -273,7 +273,7 @@ namespace Components;
         if(false===($this->m_data=Cache::get("i18n/location/{$this->m_name}")))
         {
           if(null===self::$m_pathResource)
-            self::$m_pathResource=Io::path(Environment::pathComponentResource('i18n', 'resource', 'i18n', 'location'));
+            self::$m_pathResource=Io::path(Environment::pathComponentsResource('i18n', 'resource', 'i18n', 'location'));
 
           $file=null;
 

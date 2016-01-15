@@ -22,9 +22,9 @@ namespace Components;
     {
       $locale=$this->request->getParams()->get('locale');
 
-      $source=Environment::pathComponentResource('i18n', 'resource', 'cldr', 'common', 'main', "$locale.xml");
+      $source=Environment::pathComponentsResource('i18n', 'resource', 'cldr', 'common', 'main', "$locale.xml");
       // FIXME "Upgrade" to JSON.
-      $target=Environment::pathComponentResource('i18n', 'resource', 'i18n', 'common', "$locale.xml");
+      $target=Environment::pathComponentsResource('i18n', 'resource', 'i18n', 'common', "$locale.xml");
 
       $document=new \DOMDocument('1.0', 'utf-8');
       $document->standalone=true;

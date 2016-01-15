@@ -78,10 +78,10 @@ namespace Components;
 
         for($i=0; $i<$length; $i++)
         {
-        $dec=Character::unicodeDecimal(mb_substr($string_, $i, 1));
+          $dec=Character::unicodeDecimal(mb_substr($string_, $i, 1));
 
-        if($low<=$dec && $high>=$dec)
-          return true;
+          if($low<=$dec && $high>=$dec)
+            return true;
         }
       }
 
@@ -101,7 +101,7 @@ namespace Components;
     {
       if(!$map=Cache::get(self::CACHE_KEY.'_map'))
       {
-        $path=Environment::pathComponentResource(
+        $path=Environment::pathComponentsResource(
           'i18n', 'resource', 'i18n', 'script', 'hans.json'
         );
 

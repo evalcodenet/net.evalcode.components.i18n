@@ -52,6 +52,20 @@ namespace Components;
     }
 
     /**
+     * @param string $value_
+     *
+     * @return \Components\I18n_Location
+     */
+    public static function valueOf($name_)
+    {
+      $name_=strtolower($name_);
+      if(false===isset(self::$m_instance[$name_]))
+        self::$m_instance[$name_]=new static($name_);
+
+      return self::$m_instance[$name_];
+    }
+
+    /**
      * @return string[]
      */
     public static function values()
@@ -73,6 +87,7 @@ namespace Components;
 
 
     // IMPLEMENTATION
+    private static $m_instance=[];
     /**
      * @var string[]
      */
@@ -99,7 +114,7 @@ namespace Components;
         if(false===($this->m_data=Cache::get("i18n/country/$name")))
         {
           $this->m_data['children']=[];
-          $path=Io::pathComponentResource('i18n', 'resource', 'i18n', 'location', $name);
+          $path=Io::pathComponentsResource('i18n', 'resource', 'i18n', 'location', $name);
 
           if($path->exists())
           {

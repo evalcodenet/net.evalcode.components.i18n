@@ -60,11 +60,11 @@ namespace Components;
     /**
      * @var string[]
      */
-    private static $m_languages=array(
+    private static $m_languages=[
       self::en=>self::de,
       self::de=>self::en,
       self::zh=>self::zh
-    );
+    ];
     //--------------------------------------------------------------------------
   }
 ?>

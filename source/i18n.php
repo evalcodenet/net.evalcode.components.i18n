@@ -12,7 +12,7 @@ namespace Components;
    * Less code does not always result in better performance.
    * Instead this class is optimized to behave lazy and keep its data close.
    *
-   * Keep that in mind in case you ge confused by redundancies in this class.
+   * Keep that in mind in case you get confused by redundancies in this class.
    * Profile carefully if you want to optimize something.
    *
    * Currently the class is supposed to give best performance for
@@ -351,7 +351,7 @@ namespace Components;
     private static function pathTranslationCommon()
     {
       if(null===self::$m_pathTranslationCommon)
-        self::$m_pathTranslationCommon=Io::pathComponentResource('i18n', 'resource', 'i18n', 'translation', 'common');
+        self::$m_pathTranslationCommon=Io::pathComponentsResource('i18n', 'resource', 'i18n', 'translation', 'common');
 
       return self::$m_pathTranslationCommon;
     }
