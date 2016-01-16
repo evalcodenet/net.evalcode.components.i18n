@@ -1,0 +1,155 @@
+{
+  "type": 3,
+  "children": 
+  {
+    "tianjin": 
+    {
+      "type": 4,
+      "latitude": 38.686542,
+      "longitude": 116.8865344,
+      "children": 
+      {
+        "jinghai": 
+        {
+          "type": 5,
+          "latitude": 38.686542,
+          "longitude": 116.8865344
+        },
+        "jinghaixian": 
+        {
+          "type": 5,
+          "latitude": 38.70756,
+          "longitude": 116.910099
+        },
+        "wuqing": 
+        {
+          "type": 5,
+          "latitude": 39.38406,
+          "longitude": 117.044414
+        },
+        "jixian": 
+        {
+          "type": 5,
+          "latitude": 40.043404,
+          "longitude": 117.341275
+        },
+        "jinnan": 
+        {
+          "type": 5,
+          "latitude": 38.99727,
+          "longitude": 117.3101233
+        },
+        "xiqing": 
+        {
+          "type": 5,
+          "latitude": 39.1199488,
+          "longitude": 117.0615001
+        },
+        "dongli": 
+        {
+          "type": 5,
+          "latitude": 39.0141203,
+          "longitude": 117.5086034
+        },
+        "ninghe": 
+        {
+          "type": 5,
+          "latitude": 39.5305401,
+          "longitude": 117.769133
+        },
+        "beichenqu": 
+        {
+          "type": 5,
+          "latitude": 39.241092,
+          "longitude": 117.258088
+        },
+        "binhai": 
+        {
+          "type": 5,
+          "latitude": 39.036357,
+          "longitude": 117.698088
+        },
+        "wuqingqu": 
+        {
+          "type": 5,
+          "latitude": 39.351719,
+          "longitude": 117.0697
+        },
+        "binhaixinqu": 
+        {
+          "type": 5,
+          "latitude": 39.272387,
+          "longitude": 117.806575
+        },
+        "hedong": 
+        {
+          "type": 5,
+          "latitude": 39.1317666,
+          "longitude": 117.2422651
+        },
+        "beichen": 
+        {
+          "type": 5,
+          "latitude": 39.195723,
+          "longitude": 117.150752
+        },
+        "baodi": 
+        {
+          "type": 5,
+          "latitude": 39.717575,
+          "longitude": 117.309819
+        },
+        "hexiqu": 
+        {
+          "type": 5,
+          "latitude": 39.1103452,
+          "longitude": 117.2169317
+        },
+        "nankai": 
+        {
+          "type": 5,
+          "latitude": 39.138203,
+          "longitude": 117.150738
+        },
+        "dongliqu": 
+        {
+          "type": 5,
+          "latitude": 39.064425,
+          "longitude": 117.403232
+        }
+      }
+    },
+    "dalian": 
+    {
+      "type": 4,
+      "latitude": 38.9157404,
+      "longitude": 121.5936761,
+      "children": 
+      {
+        "shahekou": 
+        {
+          "type": 5,
+          "latitude": 38.9157404,
+          "longitude": 121.5936761
+        }
+      }
+    },
+    "beijing": 
+    {
+      "type": 4,
+      "latitude": 39.7317402,
+      "longitude": 116.8792125,
+      "children": 
+      {
+        "tongzhouqu": 
+        {
+          "type": 5,
+          "latitude": 39.7317402,
+          "longitude": 116.8792125
+        }
+      }
+    }
+  },
+  "latitude": 38.686542,
+  "longitude": 116.8865344
+}

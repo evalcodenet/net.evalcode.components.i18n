@@ -1,0 +1,48 @@
+{
+  "type": 3,
+  "latitude": 22.1634178,
+  "longitude": 113.5629425,
+  "children": 
+  {
+    "coloane": 
+    {
+      "type": 4,
+      "latitude": 22.1264203,
+      "longitude": 113.5708666,
+      "children": 
+      [
+        
+      ]
+    },
+    "cotai": 
+    {
+      "type": 4,
+      "latitude": 22.1413751,
+      "longitude": 113.5648611,
+      "children": 
+      [
+        
+      ]
+    },
+    "macau": 
+    {
+      "type": 4,
+      "latitude": 22.1634178,
+      "longitude": 113.5629425,
+      "children": 
+      [
+        
+      ]
+    },
+    "taipa": 
+    {
+      "type": 4,
+      "latitude": 22.1500512,
+      "longitude": 113.5684665,
+      "children": 
+      [
+        
+      ]
+    }
+  }
+}

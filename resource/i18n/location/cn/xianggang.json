@@ -1,0 +1,125 @@
+{
+  "type": 3,
+  "latitude": 22.3700555,
+  "longitude": 114.1535941,
+  "children": 
+  {
+    "xianggang": 
+    {
+      "type": 4,
+      "latitude": 22.3700555,
+      "longitude": 114.1535941,
+      "children": 
+      {
+        "islands": 
+        {
+          "type": 5,
+          "latitude": 22.3700555,
+          "longitude": 114.1535941
+        },
+        "kwaitsing": 
+        {
+          "type": 5,
+          "latitude": 22.3700555,
+          "longitude": 114.1535941
+        },
+        "north": 
+        {
+          "type": 5,
+          "latitude": 22.3700555,
+          "longitude": 114.1535941
+        },
+        "saikung": 
+        {
+          "type": 5,
+          "latitude": 22.3700555,
+          "longitude": 114.1535941
+        },
+        "shatin": 
+        {
+          "type": 5,
+          "latitude": 22.3700555,
+          "longitude": 114.1535941
+        },
+        "taipo": 
+        {
+          "type": 5,
+          "latitude": 22.3700555,
+          "longitude": 114.1535941
+        },
+        "tsuenwan": 
+        {
+          "type": 5,
+          "latitude": 22.3700555,
+          "longitude": 114.1535941
+        },
+        "tuenmun": 
+        {
+          "type": 5,
+          "latitude": 22.3700555,
+          "longitude": 114.1535941
+        },
+        "yuenlong": 
+        {
+          "type": 5,
+          "latitude": 22.3700555,
+          "longitude": 114.1535941
+        },
+        "kowlooncity": 
+        {
+          "type": 5,
+          "latitude": 22.3700555,
+          "longitude": 114.1535941
+        },
+        "kwuntong": 
+        {
+          "type": 5,
+          "latitude": 22.3700555,
+          "longitude": 114.1535941
+        },
+        "shamshuipo": 
+        {
+          "type": 5,
+          "latitude": 22.3700555,
+          "longitude": 114.1535941
+        },
+        "wongtaisin": 
+        {
+          "type": 5,
+          "latitude": 22.3700555,
+          "longitude": 114.1535941
+        },
+        "yautsimmong": 
+        {
+          "type": 5,
+          "latitude": 22.3700555,
+          "longitude": 114.1535941
+        },
+        "central": 
+        {
+          "type": 5,
+          "latitude": 22.3700555,
+          "longitude": 114.1535941
+        },
+        "eastern": 
+        {
+          "type": 5,
+          "latitude": 22.3700555,
+          "longitude": 114.1535941
+        },
+        "southern": 
+        {
+          "type": 5,
+          "latitude": 22.3700555,
+          "longitude": 114.1535941
+        },
+        "wanchai": 
+        {
+          "type": 5,
+          "latitude": 22.3700555,
+          "longitude": 114.1535941
+        }
+      }
+    }
+  }
+}

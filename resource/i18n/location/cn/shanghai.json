@@ -1,0 +1,191 @@
+{
+  "type": 3,
+  "children": 
+  {
+    "shanghai": 
+    {
+      "type": 4,
+      "latitude": 31.230393,
+      "longitude": 121.473704,
+      "children": 
+      {
+        "chongming": 
+        {
+          "type": 5,
+          "latitude": 31.5338653,
+          "longitude": 121.822627
+        },
+        "pudong": 
+        {
+          "type": 5,
+          "latitude": 31.192279,
+          "longitude": 121.5902437
+        },
+        "jiading": 
+        {
+          "type": 5,
+          "latitude": 31.2663318,
+          "longitude": 121.2256031
+        },
+        "minhang": 
+        {
+          "type": 5,
+          "latitude": 31.0488175,
+          "longitude": 121.4020726
+        },
+        "jingan": 
+        {
+          "type": 5,
+          "latitude": 31.229401,
+          "longitude": 121.447668
+        },
+        "huangpuqu": 
+        {
+          "type": 5,
+          "latitude": 31.218722,
+          "longitude": 121.467324
+        },
+        "qingpu": 
+        {
+          "type": 5,
+          "latitude": 31.1512866,
+          "longitude": 121.1143872
+        },
+        "fengxian": 
+        {
+          "type": 5,
+          "latitude": 30.8315606,
+          "longitude": 121.5273155
+        },
+        "changning": 
+        {
+          "type": 5,
+          "latitude": 31.215076,
+          "longitude": 121.435097
+        },
+        "xuhui": 
+        {
+          "type": 5,
+          "latitude": 31.188523,
+          "longitude": 121.436526
+        },
+        "putuo": 
+        {
+          "type": 5,
+          "latitude": 31.249889,
+          "longitude": 121.396206
+        },
+        "songjiang": 
+        {
+          "type": 5,
+          "latitude": 30.9419443,
+          "longitude": 121.1862998
+        },
+        "pudongxinqu": 
+        {
+          "type": 5,
+          "latitude": 31.0508638,
+          "longitude": 121.7724609
+        },
+        "baoshan": 
+        {
+          "type": 5,
+          "latitude": 31.4374875,
+          "longitude": 121.4180435
+        },
+        "xuhuiqu": 
+        {
+          "type": 5,
+          "latitude": 31.195352,
+          "longitude": 121.436786
+        },
+        "luwan": 
+        {
+          "type": 5,
+          "latitude": 31.2090265,
+          "longitude": 121.4618045
+        },
+        "huangpu": 
+        {
+          "type": 5,
+          "latitude": 31.205797,
+          "longitude": 121.474845
+        },
+        "luwanqu": 
+        {
+          "type": 5,
+          "latitude": 31.207273,
+          "longitude": 121.463684
+        },
+        "fengxianqu": 
+        {
+          "type": 5,
+          "latitude": 30.868733,
+          "longitude": 121.541767
+        },
+        "putuoqu": 
+        {
+          "type": 5,
+          "latitude": 31.251101,
+          "longitude": 121.407208
+        },
+        "chongmingxian": 
+        {
+          "type": 5,
+          "latitude": 31.4743659,
+          "longitude": 121.8087828
+        },
+        "zhabei": 
+        {
+          "type": 5,
+          "latitude": 31.247111,
+          "longitude": 121.459382
+        },
+        "jinshanqu": 
+        {
+          "type": 5,
+          "latitude": 30.873785,
+          "longitude": 121.104295
+        },
+        "minxingqu": 
+        {
+          "type": 5,
+          "latitude": 31.2098628,
+          "longitude": 121.2858825
+        },
+        "songjiangqu": 
+        {
+          "type": 5,
+          "latitude": 31.057386,
+          "longitude": 121.320902
+        },
+        "yangpu": 
+        {
+          "type": 5,
+          "latitude": 31.259547,
+          "longitude": 121.526074
+        },
+        "hongkou": 
+        {
+          "type": 5,
+          "latitude": 31.264588,
+          "longitude": 121.50512
+        },
+        "qingpuqu": 
+        {
+          "type": 5,
+          "latitude": 31.187681,
+          "longitude": 121.298212
+        },
+        "jiadingqu": 
+        {
+          "type": 5,
+          "latitude": 31.28835,
+          "longitude": 121.162341
+        }
+      }
+    }
+  },
+  "latitude": 31.230393,
+  "longitude": 121.473704
+}

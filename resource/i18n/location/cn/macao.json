@@ -1,0 +1,43 @@
+{
+  "type": 3,
+  "children": 
+  {
+    "macau": 
+    {
+      "type": 4,
+      "latitude": 22.2133909,
+      "longitude": 113.5467943,
+      "children": 
+      [
+        
+      ]
+    },
+    "zhuhai": 
+    {
+      "type": 4,
+      "latitude": 22.190571,
+      "longitude": 113.533677,
+      "children": 
+      {
+        "xiangzhou": 
+        {
+          "type": 5,
+          "latitude": 22.190571,
+          "longitude": 113.533677
+        }
+      }
+    },
+    "coloane": 
+    {
+      "type": 4,
+      "latitude": 22.1227627,
+      "longitude": 113.5528624,
+      "children": 
+      [
+        
+      ]
+    }
+  },
+  "latitude": 22.2133909,
+  "longitude": 113.5467943
+}

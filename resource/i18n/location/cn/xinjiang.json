@@ -1,0 +1,472 @@
+{
+  "type": 3,
+  "children": 
+  {
+    "hamikumul": 
+    {
+      "type": 4,
+      "latitude": 43.254649,
+      "longitude": 94.697509,
+      "children": 
+      {
+        "yiwu": 
+        {
+          "type": 5,
+          "latitude": 43.254649,
+          "longitude": 94.697509
+        },
+        "hamikumul": 
+        {
+          "type": 5,
+          "latitude": 42.0206898,
+          "longitude": 94.6071413
+        }
+      }
+    },
+    "bortala": 
+    {
+      "type": 4,
+      "latitude": 44.8944952,
+      "longitude": 82.0684155,
+      "children": 
+      {
+        "bole": 
+        {
+          "type": 5,
+          "latitude": 44.8944952,
+          "longitude": 82.0684155
+        }
+      }
+    },
+    "yuncheng": 
+    {
+      "type": 4,
+      "latitude": 35.6718037,
+      "longitude": 111.2403232,
+      "children": 
+      {
+        "xinjiang": 
+        {
+          "type": 5,
+          "latitude": 35.6718037,
+          "longitude": 111.2403232
+        }
+      }
+    },
+    "karamay": 
+    {
+      "type": 4,
+      "latitude": 44.338372,
+      "longitude": 84.8740471,
+      "children": 
+      {
+        "dushanzi": 
+        {
+          "type": 5,
+          "latitude": 44.338372,
+          "longitude": 84.8740471
+        },
+        "urho": 
+        {
+          "type": 5,
+          "latitude": 46.129218,
+          "longitude": 85.484881
+        },
+        "baijiantan": 
+        {
+          "type": 5,
+          "latitude": 45.687855,
+          "longitude": 85.131696
+        },
+        "karamay": 
+        {
+          "type": 5,
+          "latitude": 45.589998,
+          "longitude": 84.859829
+        }
+      }
+    },
+    "ili": 
+    {
+      "type": 4,
+      "latitude": 44.1921245,
+      "longitude": 80.7488913,
+      "children": 
+      {
+        "huocheng": 
+        {
+          "type": 5,
+          "latitude": 44.1921245,
+          "longitude": 80.7488913
+        },
+        "yining": 
+        {
+          "type": 5,
+          "latitude": 43.9373858,
+          "longitude": 81.2812887
+        },
+        "kuytun": 
+        {
+          "type": 5,
+          "latitude": 44.426529,
+          "longitude": 84.903267
+        },
+        "xinyuan": 
+        {
+          "type": 5,
+          "latitude": 43.42993,
+          "longitude": 83.26077
+        },
+        "zhaosu": 
+        {
+          "type": 5,
+          "latitude": 43.158985,
+          "longitude": 81.122757
+        }
+      }
+    },
+    "wulumuqi": 
+    {
+      "type": 4,
+      "latitude": 43.8531222,
+      "longitude": 87.5692027,
+      "children": 
+      {
+        "xinshi": 
+        {
+          "type": 5,
+          "latitude": 43.8531222,
+          "longitude": 87.5692027
+        },
+        "tianshan": 
+        {
+          "type": 5,
+          "latitude": 43.761465,
+          "longitude": 87.635565
+        },
+        "midong": 
+        {
+          "type": 5,
+          "latitude": 43.9574829,
+          "longitude": 87.654917
+        },
+        "dabancheng": 
+        {
+          "type": 5,
+          "latitude": 43.529271,
+          "longitude": 88.497425
+        },
+        "wulumuqi": 
+        {
+          "type": 5,
+          "latitude": 43.471514,
+          "longitude": 87.409532
+        }
+      }
+    },
+    "turpan": 
+    {
+      "type": 4,
+      "latitude": 42.843087,
+      "longitude": 90.207046,
+      "children": 
+      {
+        "shanshan": 
+        {
+          "type": 5,
+          "latitude": 42.843087,
+          "longitude": 90.207046
+        },
+        "turpan": 
+        {
+          "type": 5,
+          "latitude": 42.942328,
+          "longitude": 89.185877
+        }
+      }
+    },
+    "shihezi": 
+    {
+      "type": 4,
+      "latitude": 44.306119,
+      "longitude": 86.080497,
+      "children": 
+      [
+        
+      ]
+    },
+    "changji": 
+    {
+      "type": 4,
+      "latitude": 44.011183,
+      "longitude": 87.308225,
+      "children": 
+      {
+        "changji": 
+        {
+          "type": 5,
+          "latitude": 44.012677,
+          "longitude": 87.302493
+        },
+        "hutubi": 
+        {
+          "type": 5,
+          "latitude": 44.191428,
+          "longitude": 86.898902
+        },
+        "manasixian": 
+        {
+          "type": 5,
+          "latitude": 44.571012,
+          "longitude": 86.46661
+        },
+        "hutubixian": 
+        {
+          "type": 5,
+          "latitude": 44.496302,
+          "longitude": 86.825726
+        },
+        "qitai": 
+        {
+          "type": 5,
+          "latitude": 44.022,
+          "longitude": 89.593864
+        }
+      }
+    },
+    "kashikaxgar": 
+    {
+      "type": 4,
+      "latitude": 39.4704,
+      "longitude": 75.989755,
+      "children": 
+      {
+        "payzawat": 
+        {
+          "type": 5,
+          "latitude": 39.488182,
+          "longitude": 76.72372
+        }
+      }
+    },
+    "bayingol": 
+    {
+      "type": 4,
+      "latitude": 41.72664,
+      "longitude": 86.17401,
+      "children": 
+      {
+        "korla": 
+        {
+          "type": 5,
+          "latitude": 41.72664,
+          "longitude": 86.17401
+        },
+        "yuli": 
+        {
+          "type": 5,
+          "latitude": 41.338178,
+          "longitude": 86.263627
+        },
+        "ruoqiang": 
+        {
+          "type": 5,
+          "latitude": 39.233658,
+          "longitude": 88.936696
+        },
+        "yanqi": 
+        {
+          "type": 5,
+          "latitude": 42.05979,
+          "longitude": 86.574084
+        },
+        "luntai": 
+        {
+          "type": 5,
+          "latitude": 41.777793,
+          "longitude": 84.251934
+        }
+      }
+    },
+    "hetian": 
+    {
+      "type": 4,
+      "latitude": 37.06408,
+      "longitude": 82.695862,
+      "children": 
+      {
+        "minfengxian": 
+        {
+          "type": 5,
+          "latitude": 37.06408,
+          "longitude": 82.695862
+        },
+        "hetian": 
+        {
+          "type": 5,
+          "latitude": 37.112148,
+          "longitude": 79.913534
+        },
+        "karakax": 
+        {
+          "type": 5,
+          "latitude": 37.276384,
+          "longitude": 79.738044
+        }
+      }
+    },
+    "aksu": 
+    {
+      "type": 4,
+      "latitude": 41.214652,
+      "longitude": 79.224436,
+      "children": 
+      {
+        "uqturpan": 
+        {
+          "type": 5,
+          "latitude": 41.214652,
+          "longitude": 79.224436
+        },
+        "kuqa": 
+        {
+          "type": 5,
+          "latitude": 41.7863071,
+          "longitude": 83.0511478
+        },
+        "wensu": 
+        {
+          "type": 5,
+          "latitude": 41.276777,
+          "longitude": 80.238959
+        },
+        "xayar": 
+        {
+          "type": 5,
+          "latitude": 41.221667,
+          "longitude": 82.781819
+        },
+        "awat": 
+        {
+          "type": 5,
+          "latitude": 40.64319,
+          "longitude": 80.375347
+        },
+        "aksu": 
+        {
+          "type": 5,
+          "latitude": 41.167548,
+          "longitude": 80.263387
+        }
+      }
+    },
+    "kizilsu": 
+    {
+      "type": 4,
+      "latitude": 39.719322,
+      "longitude": 75.25905,
+      "children": 
+      {
+        "ulugqat": 
+        {
+          "type": 5,
+          "latitude": 39.719322,
+          "longitude": 75.25905
+        },
+        "artux": 
+        {
+          "type": 5,
+          "latitude": 39.716152,
+          "longitude": 76.168274
+        }
+      }
+    },
+    "akesu": 
+    {
+      "type": 4,
+      "latitude": 41.717906,
+      "longitude": 82.962016,
+      "children": 
+      {
+        "kuchexian": 
+        {
+          "type": 5,
+          "latitude": 41.717906,
+          "longitude": 82.962016
+        }
+      }
+    },
+    "qoqek": 
+    {
+      "type": 4,
+      "latitude": 44.3821506,
+      "longitude": 84.0939385,
+      "children": 
+      {
+        "usu": 
+        {
+          "type": 5,
+          "latitude": 44.3821506,
+          "longitude": 84.0939385
+        }
+      }
+    },
+    "yilihasakezizhizhou": 
+    {
+      "type": 4,
+      "latitude": 43.322798,
+      "longitude": 84.020473,
+      "children": 
+      {
+        "xinyuanxian": 
+        {
+          "type": 5,
+          "latitude": 43.322798,
+          "longitude": 84.020473
+        }
+      }
+    },
+    "altay": 
+    {
+      "type": 4,
+      "latitude": 47.844924,
+      "longitude": 88.141253,
+      "children": 
+      {
+        "altay": 
+        {
+          "type": 5,
+          "latitude": 47.827336,
+          "longitude": 88.131823
+        }
+      }
+    },
+    "aral": 
+    {
+      "type": 4,
+      "latitude": 40.546286,
+      "longitude": 81.280385,
+      "children": 
+      [
+        
+      ]
+    },
+    "changchun": 
+    {
+      "type": 4,
+      "latitude": 43.871222,
+      "longitude": 125.3109727,
+      "children": 
+      {
+        "chaoyang": 
+        {
+          "type": 5,
+          "latitude": 43.871222,
+          "longitude": 125.3109727
+        }
+      }
+    }
+  },
+  "latitude": 43.254649,
+  "longitude": 94.697509
+}

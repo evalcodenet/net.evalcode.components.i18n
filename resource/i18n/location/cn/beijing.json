@@ -1,0 +1,278 @@
+{
+  "type": 3,
+  "children": 
+  {
+    "beijing": 
+    {
+      "type": 4,
+      "latitude": 39.90403,
+      "longitude": 116.407526,
+      "children": 
+      {
+        "haidian": 
+        {
+          "type": 5,
+          "latitude": 39.959907,
+          "longitude": 116.298045
+        },
+        "changping": 
+        {
+          "type": 5,
+          "latitude": 40.22066,
+          "longitude": 116.231204
+        },
+        "shunyi": 
+        {
+          "type": 5,
+          "latitude": 40.130211,
+          "longitude": 116.654812
+        },
+        "shunyiqu": 
+        {
+          "type": 5,
+          "latitude": 40.130008,
+          "longitude": 116.656835
+        },
+        "dongcheng": 
+        {
+          "type": 5,
+          "latitude": 39.8969901,
+          "longitude": 116.4347193
+        },
+        "dongchengqu": 
+        {
+          "type": 5,
+          "latitude": 39.902446,
+          "longitude": 116.427024
+        },
+        "tongzhou": 
+        {
+          "type": 5,
+          "latitude": 39.909965,
+          "longitude": 116.656437
+        },
+        "huairou": 
+        {
+          "type": 5,
+          "latitude": 40.31657,
+          "longitude": 116.63196
+        },
+        "mentougou": 
+        {
+          "type": 5,
+          "latitude": 39.940342,
+          "longitude": 116.101703
+        },
+        "pinggu": 
+        {
+          "type": 5,
+          "latitude": 40.1682877,
+          "longitude": 117.185587
+        },
+        "pingguqu": 
+        {
+          "type": 5,
+          "latitude": 40.1683424,
+          "longitude": 117.1873766
+        },
+        "fangshan": 
+        {
+          "type": 5,
+          "latitude": 39.7264921,
+          "longitude": 116.1386693
+        },
+        "xicheng": 
+        {
+          "type": 5,
+          "latitude": 39.9369171,
+          "longitude": 116.3903352
+        },
+        "fangshanqu": 
+        {
+          "type": 5,
+          "latitude": 39.7709598,
+          "longitude": 115.9868306
+        },
+        "daxing": 
+        {
+          "type": 5,
+          "latitude": 39.726929,
+          "longitude": 116.341395
+        },
+        "chaoyang": 
+        {
+          "type": 5,
+          "latitude": 39.9872758,
+          "longitude": 116.4701954
+        },
+        "fengtai": 
+        {
+          "type": 5,
+          "latitude": 39.85847,
+          "longitude": 116.287062
+        },
+        "tongzhouqu": 
+        {
+          "type": 5,
+          "latitude": 39.8288933,
+          "longitude": 116.6580545
+        },
+        "miyun": 
+        {
+          "type": 5,
+          "latitude": 40.3770745,
+          "longitude": 116.8532859
+        },
+        "yanqing": 
+        {
+          "type": 5,
+          "latitude": 40.468281,
+          "longitude": 116.103528
+        },
+        "fengtaiqu": 
+        {
+          "type": 5,
+          "latitude": 39.835517,
+          "longitude": 116.401884
+        },
+        "daxingqu": 
+        {
+          "type": 5,
+          "latitude": 39.5589137,
+          "longitude": 116.4616844
+        },
+        "yanqingxian": 
+        {
+          "type": 5,
+          "latitude": 40.747252,
+          "longitude": 116.269867
+        },
+        "haidianqu": 
+        {
+          "type": 5,
+          "latitude": 39.948128,
+          "longitude": 116.29382
+        },
+        "miyunxian": 
+        {
+          "type": 5,
+          "latitude": 40.381299,
+          "longitude": 116.8589494
+        },
+        "shijingshan": 
+        {
+          "type": 5,
+          "latitude": 39.9283604,
+          "longitude": 116.2054101
+        },
+        "huairouqu": 
+        {
+          "type": 5,
+          "latitude": 40.3279744,
+          "longitude": 116.6958444
+        },
+        "shijingshanqu": 
+        {
+          "type": 5,
+          "latitude": 39.919179,
+          "longitude": 116.206671
+        },
+        "mentougouqu": 
+        {
+          "type": 5,
+          "latitude": 40.014289,
+          "longitude": 115.8179141
+        },
+        "changpingqu": 
+        {
+          "type": 5,
+          "latitude": 40.05817,
+          "longitude": 116.408751
+        }
+      }
+    },
+    "ganzhou": 
+    {
+      "type": 4,
+      "latitude": 26.123243,
+      "longitude": 115.919235,
+      "children": 
+      {
+        "ningdouxian": 
+        {
+          "type": 5,
+          "latitude": 26.123243,
+          "longitude": 115.919235
+        }
+      }
+    },
+    "yuncheng": 
+    {
+      "type": 4,
+      "latitude": 35.128619,
+      "longitude": 110.649259,
+      "children": 
+      {
+        "linyixian": 
+        {
+          "type": 5,
+          "latitude": 35.128619,
+          "longitude": 110.649259
+        }
+      }
+    },
+    "hechi": 
+    {
+      "type": 4,
+      "latitude": 24.538629,
+      "longitude": 107.847637,
+      "children": 
+      {
+        "jinchengjiangqu": 
+        {
+          "type": 5,
+          "latitude": 24.538629,
+          "longitude": 107.847637
+        },
+        "jinchengjiang": 
+        {
+          "type": 5,
+          "latitude": 24.538629,
+          "longitude": 107.847637
+        }
+      }
+    },
+    "changchun": 
+    {
+      "type": 4,
+      "latitude": 43.900489,
+      "longitude": 125.3242264,
+      "children": 
+      {
+        "kuancheng": 
+        {
+          "type": 5,
+          "latitude": 43.900489,
+          "longitude": 125.3242264
+        }
+      }
+    },
+    "bose": 
+    {
+      "type": 4,
+      "latitude": 24.260957,
+      "longitude": 106.782166,
+      "children": 
+      {
+        "lingyun": 
+        {
+          "type": 5,
+          "latitude": 24.260957,
+          "longitude": 106.782166
+        }
+      }
+    }
+  },
+  "latitude": 39.90403,
+  "longitude": 116.407526
+}

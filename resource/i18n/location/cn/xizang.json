@@ -1,0 +1,389 @@
+{
+  "type": 3,
+  "children": 
+  {
+    "lhasa": 
+    {
+      "type": 4,
+      "latitude": 29.645554,
+      "longitude": 91.140856,
+      "children": 
+      {
+        "chengguan": 
+        {
+          "type": 5,
+          "latitude": 29.6491808,
+          "longitude": 91.1338226
+        },
+        "doilungdeqen": 
+        {
+          "type": 5,
+          "latitude": 29.646064,
+          "longitude": 91.00334
+        },
+        "damxung": 
+        {
+          "type": 5,
+          "latitude": 30.473711,
+          "longitude": 91.1069475
+        },
+        "dagze": 
+        {
+          "type": 5,
+          "latitude": 29.670863,
+          "longitude": 91.3448069
+        },
+        "maizhokunggar": 
+        {
+          "type": 5,
+          "latitude": 29.8375445,
+          "longitude": 91.7333854
+        },
+        "lhunzhub": 
+        {
+          "type": 5,
+          "latitude": 29.8892598,
+          "longitude": 91.2661237
+        }
+      }
+    },
+    "rikaze": 
+    {
+      "type": 4,
+      "latitude": 29.2578272,
+      "longitude": 88.8646108,
+      "children": 
+      {
+        "rikaze": 
+        {
+          "type": 5,
+          "latitude": 29.2578272,
+          "longitude": 88.8646108
+        },
+        "gyirong": 
+        {
+          "type": 5,
+          "latitude": 28.477891,
+          "longitude": 85.226613
+        },
+        "jilongxian": 
+        {
+          "type": 5,
+          "latitude": 28.474357,
+          "longitude": 85.240537
+        },
+        "saga": 
+        {
+          "type": 5,
+          "latitude": 29.328476,
+          "longitude": 85.233322
+        },
+        "tingri": 
+        {
+          "type": 5,
+          "latitude": 28.658743,
+          "longitude": 87.12612
+        },
+        "xaitongmoin": 
+        {
+          "type": 5,
+          "latitude": 29.4325264,
+          "longitude": 88.2631872
+        },
+        "nyalam": 
+        {
+          "type": 5,
+          "latitude": 27.9921973,
+          "longitude": 85.9828746
+        },
+        "gamba": 
+        {
+          "type": 5,
+          "latitude": 28.273541,
+          "longitude": 88.5177441
+        },
+        "sagya": 
+        {
+          "type": 5,
+          "latitude": 28.9004576,
+          "longitude": 88.0260137
+        },
+        "kangmar": 
+        {
+          "type": 5,
+          "latitude": 28.438291,
+          "longitude": 89.624839
+        },
+        "lhatse": 
+        {
+          "type": 5,
+          "latitude": 29.093531,
+          "longitude": 87.6319132
+        },
+        "namling": 
+        {
+          "type": 5,
+          "latitude": 29.6776279,
+          "longitude": 89.0976509
+        },
+        "rinbung": 
+        {
+          "type": 5,
+          "latitude": 29.2271011,
+          "longitude": 89.8444494
+        }
+      }
+    },
+    "nyingchi": 
+    {
+      "type": 4,
+      "latitude": 29.904206,
+      "longitude": 95.602656,
+      "children": 
+      {
+        "bowo": 
+        {
+          "type": 5,
+          "latitude": 29.904206,
+          "longitude": 95.602656
+        },
+        "langxian": 
+        {
+          "type": 5,
+          "latitude": 29.046337,
+          "longitude": 93.074702
+        },
+        "nyingchi": 
+        {
+          "type": 5,
+          "latitude": 29.753502,
+          "longitude": 94.170157
+        },
+        "mainling": 
+        {
+          "type": 5,
+          "latitude": 29.215695,
+          "longitude": 94.213457
+        }
+      }
+    },
+    "linzhi": 
+    {
+      "type": 4,
+      "latitude": 29.325298,
+      "longitude": 95.333197,
+      "children": 
+      {
+        "motuoxian": 
+        {
+          "type": 5,
+          "latitude": 29.325298,
+          "longitude": 95.333197
+        },
+        "langxian": 
+        {
+          "type": 5,
+          "latitude": 29.123324,
+          "longitude": 93.149852
+        },
+        "bomixian": 
+        {
+          "type": 5,
+          "latitude": 29.859028,
+          "longitude": 95.767913
+        }
+      }
+    },
+    "nujiang": 
+    {
+      "type": 4,
+      "latitude": 25.852548,
+      "longitude": 98.853097,
+      "children": 
+      [
+        
+      ]
+    },
+    "qamdo": 
+    {
+      "type": 4,
+      "latitude": 30.7039,
+      "longitude": 97.68454,
+      "children": 
+      {
+        "chagyab": 
+        {
+          "type": 5,
+          "latitude": 30.7039,
+          "longitude": 97.68454
+        },
+        "qamdo": 
+        {
+          "type": 5,
+          "latitude": 31.852229,
+          "longitude": 97.010351
+        },
+        "gonjo": 
+        {
+          "type": 5,
+          "latitude": 30.951089,
+          "longitude": 98.413037
+        },
+        "banbar": 
+        {
+          "type": 5,
+          "latitude": 30.715779,
+          "longitude": 94.771085
+        },
+        "lhorong": 
+        {
+          "type": 5,
+          "latitude": 30.949722,
+          "longitude": 95.554928
+        }
+      }
+    },
+    "nagqu": 
+    {
+      "type": 4,
+      "latitude": 31.48025,
+      "longitude": 93.679639,
+      "children": 
+      {
+        "biru": 
+        {
+          "type": 5,
+          "latitude": 31.48025,
+          "longitude": 93.679639
+        },
+        "nyainrong": 
+        {
+          "type": 5,
+          "latitude": 32.1076653,
+          "longitude": 92.304666
+        }
+      }
+    },
+    "bhar": 
+    {
+      "type": 4,
+      "latitude": 32.0513225,
+      "longitude": 78.0912216,
+      "children": 
+      [
+        
+      ]
+    },
+    "shannan": 
+    {
+      "type": 4,
+      "latitude": 29.379012,
+      "longitude": 91.423063,
+      "children": 
+      {
+        "chatang": 
+        {
+          "type": 5,
+          "latitude": 29.379012,
+          "longitude": 91.423063
+        },
+        "cona": 
+        {
+          "type": 5,
+          "latitude": 27.9911314,
+          "longitude": 91.9607067
+        },
+        "qusum": 
+        {
+          "type": 5,
+          "latitude": 29.079673,
+          "longitude": 92.16146
+        },
+        "nedong": 
+        {
+          "type": 5,
+          "latitude": 29.2432678,
+          "longitude": 91.7722991
+        }
+      }
+    },
+    "naqu": 
+    {
+      "type": 4,
+      "latitude": 31.9214457,
+      "longitude": 88.056699,
+      "children": 
+      {
+        "shenzhaxian": 
+        {
+          "type": 5,
+          "latitude": 30.5279631,
+          "longitude": 89.0047843
+        }
+      }
+    },
+    "alidequ": 
+    {
+      "type": 4,
+      "latitude": 32.3096142,
+      "longitude": 82.4158026,
+      "children": 
+      [
+        
+      ]
+    },
+    "changdou": 
+    {
+      "type": 4,
+      "latitude": 30.635746,
+      "longitude": 98.3960316,
+      "children": 
+      [
+        
+      ]
+    },
+    "shannandequ": 
+    {
+      "type": 4,
+      "latitude": 28.592297,
+      "longitude": 92.2147723,
+      "children": 
+      [
+        
+      ]
+    },
+    "seri": 
+    {
+      "type": 4,
+      "latitude": 29.5166667,
+      "longitude": 81.9666667,
+      "children": 
+      [
+        
+      ]
+    },
+    "ngari": 
+    {
+      "type": 4,
+      "latitude": 32.4975595,
+      "longitude": 80.1149187,
+      "children": 
+      {
+        "gar": 
+        {
+          "type": 5,
+          "latitude": 32.4975595,
+          "longitude": 80.1149187
+        },
+        "rutog": 
+        {
+          "type": 5,
+          "latitude": 32.886497,
+          "longitude": 81.313254
+        }
+      }
+    }
+  },
+  "latitude": 29.645554,
+  "longitude": 91.140856
+}
